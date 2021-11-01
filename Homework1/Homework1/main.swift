@@ -1,6 +1,17 @@
 import Foundation
 
-struct Car {
+struct Car: CustomStringConvertible {
+    var description: String {
+"""
+
+    manufacturer: \(manufacturer)
+    model: \(model)
+    body: \(body.rawValue)
+    yearOfIssue: \(yearOfIssue?.description ?? "-")
+    \(carNumber != nil ? "carNumber: \(String(describing: carNumber))" : "")
+
+"""
+    }
     var manufacturer: String
     var model: String
     var body: Body
@@ -8,14 +19,14 @@ struct Car {
     var carNumber: String?
 }
 
-enum Body {
-    case sedan
-    case coupe
-    case cabriolet
-    case nonSelectedBody
+enum Body: String {
+    case sedan = "sedan"
+    case coupe = "coupe"
+    case cabriolet = "cabriolet"
+    case nonSelectedBody = "nonSelectedBody"
 }
 
-var ListOfCars = [Car]()
+var listOfCars = [Car]()
 
 func printMenu() {
     print("""
@@ -25,20 +36,21 @@ func printMenu() {
     3 - Do you want see kind cars for body?
     0 - Do you want go away?
     """)
-    
-    let answer: Bool = true
-    
-    while answer {
+
+    while true {
         let choice = readLine()
-        if choice == "1" {
+        switch choice {
+        case "1":
             assembleNewCar()
-        } else if choice == "2" {
+        case "2":
             showAllCars()
-        } else if choice == "3" {
+        case "3":
             showFilteredCars()
-        } else if choice == "0" {
+        case "0":
             print("See you later, good bye!")
-            break
+            return
+        default:
+            print("Error, try again")
         }
     }
 }
@@ -49,62 +61,45 @@ func assembleNewCar() {
     let body: Body
     let yearOfIssue: Int?
     let carNumber: String?
-    
+
     print("Write manufacturer of the car")
     manufacturer = readLine() ?? ""
-    
+
     print("Write model of the car")
     model = readLine() ?? ""
-    
+
     print("""
     Write body of the car:
-    1 - sedan
-    2 - coupe
-    3 - cabriolet
+    sedan
+    coupe
+    cabriolet
     """)
     let typeOfBody = readLine()
-    body = selectBody(typeOfBody: typeOfBody ?? "")
-    
+    body = Body(rawValue: typeOfBody ?? "nonSelectedBody") ?? Body.nonSelectedBody
+
     print("Write year of the car issue")
     yearOfIssue = Int(readLine() ?? "-")
-    
+
     print("Write the car number")
     carNumber = readLine() ?? "-"
-    appendAssembledCar(newCar: Car(manufacturer: manufacturer, model: model, body: body,
+    listOfCars.append(Car(manufacturer: manufacturer, model: model, body: body,
                                    yearOfIssue: yearOfIssue, carNumber: carNumber))
 }
 
-func appendAssembledCar(newCar : Car) {
-    ListOfCars.append(newCar)
-}
-
-func selectBody(typeOfBody: String) -> Body{
-    switch (typeOfBody) {
-    case "1":
-        return .sedan
-    case "2":
-        return .coupe
-    case "3":
-        return .cabriolet
-    default:
-        return .nonSelectedBody
-    }
-}
-
 func showAllCars() {
-    print(ListOfCars)
+    print(listOfCars.description)
 }
 
 func showFilteredCars() {
     print("""
-    Choose cars for body:
-    1 - sedan
-    2 - coupe
-    3 - cabriolet
+    Write body of the car:
+    sedan
+    coupe
+    cabriolet
     """)
     let typeOfBody = readLine()
-    let selectedBody = selectBody(typeOfBody: typeOfBody ?? "")
-    let filteredList = ListOfCars.filter {
+    let selectedBody = Body(rawValue: typeOfBody ?? "nonSelectedBody") ?? Body.nonSelectedBody
+    let filteredList = listOfCars.filter {
         $0.body == selectedBody
     }
     print(filteredList)
