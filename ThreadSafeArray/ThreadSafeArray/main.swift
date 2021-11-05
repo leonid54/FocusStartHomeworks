@@ -8,8 +8,10 @@ protocol Container {
 
 class ThreadSafe<T: Equatable, Container>{
     typealias Item = T
-    
     var threadSafeArray: [T] = []
+    
+    let queue = DispatchQueue(label: "MyConcurrentQueue", attributes: .concurrent)
+    
     var isEmpty: Bool {
         if threadSafeArray.isEmpty{
             return true
@@ -22,11 +24,16 @@ class ThreadSafe<T: Equatable, Container>{
     }
     
     func append(_ item: T) {
-        self.threadSafeArray.append(item)
+        self.queue.async(flags: .barrier) {
+            self.threadSafeArray.append(item)
+            print(self.count)
+        }
     }
     
     func remove(at index: Int) {
-        self.threadSafeArray.remove(at: index)
+        self.queue.async(flags: .barrier) {
+            self.threadSafeArray.remove(at: index)
+        }
     }
     
     subscript (index: Int) -> Item {
@@ -46,10 +53,22 @@ class ThreadSafe<T: Equatable, Container>{
 }
 
 var thread = ThreadSafe<Int, Int>()
-thread.threadSafeArray.append(1)
-thread.threadSafeArray.append(100)
-print(thread.count)
-print(thread.isEmpty)
-print(thread.contains(2))
-print(thread.contains(100))
-print(thread.threadSafeArray[1])
+//thread.append(1)
+//thread.append(100)
+//print(thread.count)
+//print(thread.isEmpty)
+//print(thread.contains(2))
+//print(thread.contains(100))
+//print(thread[1])
+print(" ================================ ")
+thread.queue.async {
+    for number in 0...1000 {
+        thread.append(number)
+    }
+}
+
+thread.queue.async {
+    for number in 0...1000 {
+        thread.append(number)
+    }
+}
