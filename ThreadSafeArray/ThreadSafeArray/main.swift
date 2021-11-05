@@ -26,7 +26,6 @@ class ThreadSafe<T: Equatable, Container>{
     func append(_ item: T) {
         self.queue.async(flags: .barrier) {
             self.threadSafeArray.append(item)
-            print(self.count)
         }
     }
     
@@ -53,14 +52,7 @@ class ThreadSafe<T: Equatable, Container>{
 }
 
 var thread = ThreadSafe<Int, Int>()
-//thread.append(1)
-//thread.append(100)
-//print(thread.count)
-//print(thread.isEmpty)
-//print(thread.contains(2))
-//print(thread.contains(100))
-//print(thread[1])
-print(" ================================ ")
+
 thread.queue.async {
     for number in 0...1000 {
         thread.append(number)
@@ -72,3 +64,6 @@ thread.queue.async {
         thread.append(number)
     }
 }
+
+sleep(arc4random() % 4)
+print(thread.count)
