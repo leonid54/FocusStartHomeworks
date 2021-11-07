@@ -1,48 +1,42 @@
 import Foundation
 
-protocol Container {
-    associatedtype Item
-    
-    subscript (index: Int) -> Item { get }
-}
-
-class ThreadSafe<T: Equatable, Container>{
+class ThreadSafeArray<T: Equatable> {
     typealias Item = T
-    var threadSafeArray: [T] = []
+    private var threadArray: [T] = []
     
-    let queue = DispatchQueue(label: "MyConcurrentQueue", attributes: .concurrent)
+    fileprivate let queue = DispatchQueue(label: "MyConcurrentQueue", attributes: .concurrent)
     
     var isEmpty: Bool {
-        if threadSafeArray.isEmpty{
+        if threadArray.isEmpty{
             return true
         }
         return false
     }
     
     var count: Int {
-        return threadSafeArray.count
+        return threadArray.count
     }
     
     func append(_ item: T) {
         self.queue.async(flags: .barrier) {
-            self.threadSafeArray.append(item)
+            self.threadArray.append(item)
         }
     }
     
     func remove(at index: Int) {
         self.queue.async(flags: .barrier) {
-            self.threadSafeArray.remove(at: index)
+            self.threadArray.remove(at: index)
         }
     }
     
     subscript (index: Int) -> Item {
         get {
-            return self.threadSafeArray[index]
+            return self.threadArray[index]
         }
     }
 
     func contains(_ element: T) -> Bool {
-        for item in self.threadSafeArray {
+        for item in self.threadArray {
             if element == item {
                 return true
             }
@@ -51,7 +45,7 @@ class ThreadSafe<T: Equatable, Container>{
     }
 }
 
-var thread = ThreadSafe<Int, Int>()
+var thread = ThreadSafeArray<Int>()
 
 thread.queue.async {
     for number in 0...1000 {
