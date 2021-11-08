@@ -5,17 +5,16 @@ class ThreadSafeArray<T> {
     
     private let queue = DispatchQueue(label: "ConcurrentQueue", attributes: .concurrent)
     
-    var isEmpty: Bool {
-        self.queue.sync {
-            if self.internalArray.isEmpty {
-            return true
-        }
-        return false
+    var count: Int {
+        self.queue.sync(flags: .barrier) {
+            return internalArray.count
         }
     }
     
-    var count: Int {
-        return internalArray.count
+    var isEmpty: Bool {
+        return self.queue.sync {
+            self.internalArray.isEmpty
+        }
     }
     
     func append(_ item: T) {
@@ -25,15 +24,17 @@ class ThreadSafeArray<T> {
     }
     
     func remove(at index: Int) {
-        guard self.internalArray.indices.contains(index) else { return }
-            self.queue.async(flags: .barrier) {
-                self.internalArray.remove(at: index)
-            }
+        self.queue.async(flags: .barrier) {
+            guard self.internalArray.indices.contains(index) else { return }
+            self.internalArray.remove(at: index)
         }
+    }
     
     subscript (index: Int) -> T {
         get {
-            return self.internalArray[index]
+            return self.queue.sync {
+                self.internalArray[index]
+            }
         }
     }
 }
