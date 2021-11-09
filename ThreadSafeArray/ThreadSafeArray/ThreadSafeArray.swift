@@ -6,7 +6,7 @@ class ThreadSafeArray<T> {
     private let queue = DispatchQueue(label: "ConcurrentQueue", attributes: .concurrent)
     
     var count: Int {
-        self.queue.sync(flags: .barrier) {
+        self.queue.sync {
             return internalArray.count
         }
     }
