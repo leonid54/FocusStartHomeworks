@@ -10,15 +10,15 @@ queue.async {
     for number in 0...1000 {
         thread.append(number)
     }
+    group.leave()
 }
-group.leave()
 group.enter()
 queue.async {
     for number in 0...1000 {
         thread.append(number)
     }
+    group.leave()
 }
-group.leave()
 
 group.wait()
 
