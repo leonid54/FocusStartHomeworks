@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SkillViewController: UIViewController {
     private var label = UILabel()

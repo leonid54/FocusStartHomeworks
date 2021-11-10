@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class HobbieViewController: UIViewController {
     private var label = UILabel()
