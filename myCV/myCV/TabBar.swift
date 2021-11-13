@@ -11,18 +11,18 @@ class TabBar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        self.view.backgroundColor = .systemBackground
         UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .label
-        setupVCs()
+        self.tabBar.tintColor = .label
+        setupVC()
     }
 
     
-    private func setupVCs() {
+    private func setupVC() {
         viewControllers = [
-            createNavController(for: MyInfoViewController(), title: NSLocalizedString("Информация", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: SkillViewController(), title: NSLocalizedString("Навыки", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: HobbieViewController(), title: NSLocalizedString("Увлечения", comment: ""), image: UIImage(systemName: "person")!)
+            createNavController(for: MyInfoViewController(), title: NSLocalizedString("Информация", comment: ""), image: UIImage(systemName: "person.circle")!),
+            createNavController(for: SkillViewController(), title: NSLocalizedString("Навыки", comment: ""), image: UIImage(systemName: "star")!),
+            createNavController(for: HobbieViewController(), title: NSLocalizedString("Увлечения", comment: ""), image: UIImage(systemName: "music.house")!)
         ]
     }
     

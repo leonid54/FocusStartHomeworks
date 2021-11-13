@@ -66,6 +66,7 @@
 			children = (
 				1DE528B6273D4F48004CB071 /* myVC */,
 				1DE52888273C1EB4004CB071 /* AppDelegate.swift */,
+				1DE528AD273C27BC004CB071 /* TabBar.swift */,
 				1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */,
 				1DE52894273C1EB8004CB071 /* Assets.xcassets */,
 				1DE52896273C1EB8004CB071 /* LaunchScreen.storyboard */,
@@ -78,7 +79,6 @@
 		1DE528B6273D4F48004CB071 /* myVC */ = {
 			isa = PBXGroup;
 			children = (
-				1DE528AD273C27BC004CB071 /* TabBar.swift */,
 				1DE5288C273C1EB4004CB071 /* MyInfoViewController.swift */,
 				1DE528A0273C201E004CB071 /* SkillViewController.swift */,
 				1DE528A3273C202D004CB071 /* HobbieViewController.swift */,

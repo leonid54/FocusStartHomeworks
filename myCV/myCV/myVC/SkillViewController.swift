@@ -16,7 +16,7 @@ class SkillViewController: UIViewController {
         internal let languageExperienceText = "Какие языки изучали?"
         internal let descLanguageExperienceText = "Языки, которые я изучал: С, С++, С#, Swift, Python, Assembly"
         internal let myExpectText = "Чего ждете от обучения?"
-        internal let descMyExpectText = "Ожидаю, что я получу и закреплю полученные знания и буду использовать их в работе!"
+        internal let descMyExpectText = "Ожидаю, что получу и закреплю полученные знания, и буду использовать их в работе!"
     }
     
     private let contentView = UIView()
