@@ -9,11 +9,11 @@ import UIKit
 
 class MyInfoViewController: UIViewController {
     struct MyInfoScreenContent {
-        internal let nameText = "Имя: Леонид"
-        internal let surnameText = "Фамилия: Горбунцов"
-        internal let ageText = "Возраст: 20 лет"
-        internal let educationText = "Образование: НГТУ"
-        internal let cityText = "Город: г.Новосибирск"
+        internal let nameText = l10n("MY_INFO_NAME")
+        internal let surnameText = l10n("MY_INFO_SURNAME")
+        internal let ageText = l10n("MY_INFO_AGE")
+        internal let educationText = l10n("MY_INFO_EDUCATION")
+        internal let cityText = l10n("MY_INFO_CITY")
     }
     
     private let newView = UIView()

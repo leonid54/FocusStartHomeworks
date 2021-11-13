@@ -11,12 +11,12 @@ import SnapKit
 class SkillViewController: UIViewController {
     
     struct SkillScreenContent {
-        internal let devExperienceText = "Как давно занимаетесь программированием?"
-        internal let descDevExperienceText = "Я занимаюсь программирование на протяжении 3 лет"
-        internal let languageExperienceText = "Какие языки изучали?"
-        internal let descLanguageExperienceText = "Языки, которые я изучал: С, С++, С#, Swift, Python, Assembly"
-        internal let myExpectText = "Чего ждете от обучения?"
-        internal let descMyExpectText = "Ожидаю, что получу и закреплю полученные знания, и буду использовать их в работе!"
+        internal let devExperienceText = l10n("SKILL_VIEW_EXP")
+        internal let descDevExperienceText = l10n("SKILL_VIEW_DESC_EXP")
+        internal let languageExperienceText = l10n("SKILL_VIEW_LANG")
+        internal let descLanguageExperienceText = l10n("SKILL_VIEW_DESC_LANG")
+        internal let myExpectText = l10n("SKILL_VIEW_EXPECT")
+        internal let descMyExpectText = l10n("SKILL_VIEW_DESC_EXPECT")
     }
     
     private let contentView = UIView()

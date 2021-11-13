@@ -11,10 +11,10 @@ import SnapKit
 class HobbieViewController: UIViewController {
     
     struct HobbieScreenContent {
-        internal let sportText = "Спорт"
-        internal let descSportText = "Бывший профессиональный спортсмен в различных видах спорта: Триатлон(зим, лет. КМС), Лыжные гонки(КМС), Велоспорт(КМС), Плавание(КМС), Настольный теннис(2 в.р)."
-        internal let artText = "Исскуство"
-        internal let descArtText = "10 лет обучался и выступал на международных конкурсах по фортепиано."
+        internal let sportText = l10n("HOBBIE_VIEW_SPORT")
+        internal let descSportText = l10n("HOBBIE_VIEW_DESC_SPORT")
+        internal let artText = l10n("HOBBIE_VIEW_ART")
+        internal let descArtText = l10n("HOBBIE_VIEW_DESC_ART")
     }
     
     private let contentView = UIView()
