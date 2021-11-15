@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D756C44274257D900A88396 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D756C43274257D900A88396 /* Metrics.swift */; };
 		1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE52888273C1EB4004CB071 /* AppDelegate.swift */; };
 		1DE5288B273C1EB4004CB071 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */; };
 		1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288C273C1EB4004CB071 /* MyInfoViewController.swift */; };
@@ -14,13 +15,14 @@
 		1DE52895273C1EB8004CB071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE52894273C1EB8004CB071 /* Assets.xcassets */; };
 		1DE528A1273C201E004CB071 /* SkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE528A0273C201E004CB071 /* SkillViewController.swift */; };
 		1DE528A4273C202D004CB071 /* HobbieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE528A3273C202D004CB071 /* HobbieViewController.swift */; };
-		1DE528AE273C27BC004CB071 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE528AD273C27BC004CB071 /* TabBar.swift */; };
+		1DE528AE273C27BC004CB071 /* MyCVTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE528AD273C27BC004CB071 /* MyCVTabBar.swift */; };
 		1DE528B3273C4098004CB071 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DE528B2273C4098004CB071 /* SnapKit */; };
 		1DE528CD273FA04C004CB071 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DE528CF273FA04C004CB071 /* Localizable.strings */; };
 		1DE528D2273FA0DF004CB071 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE528D1273FA0DF004CB071 /* Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D756C43274257D900A88396 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		1DE52885273C1EB4004CB071 /* myCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE52888273C1EB4004CB071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +32,7 @@
 		1DE52899273C1EB8004CB071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DE528A0273C201E004CB071 /* SkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewController.swift; sourceTree = "<group>"; };
 		1DE528A3273C202D004CB071 /* HobbieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbieViewController.swift; sourceTree = "<group>"; };
-		1DE528AD273C27BC004CB071 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		1DE528AD273C27BC004CB071 /* MyCVTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCVTabBar.swift; sourceTree = "<group>"; };
 		1DE528CE273FA04C004CB071 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1DE528D0273FA04F004CB071 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1DE528D1273FA0DF004CB071 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 				1DE528B6273D4F48004CB071 /* myVC */,
 				1DE52888273C1EB4004CB071 /* AppDelegate.swift */,
 				1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */,
-				1DE528AD273C27BC004CB071 /* TabBar.swift */,
+				1DE528AD273C27BC004CB071 /* MyCVTabBar.swift */,
 				1DE52899273C1EB8004CB071 /* Info.plist */,
 				1DE52891273C1EB4004CB071 /* myCV.xcdatamodeld */,
 				1DE528C8273FA006004CB071 /* Resources */,
@@ -94,6 +96,7 @@
 				1DE52894273C1EB8004CB071 /* Assets.xcassets */,
 				1DE528D1273FA0DF004CB071 /* Localization.swift */,
 				1DE528CF273FA04C004CB071 /* Localizable.strings */,
+				1D756C43274257D900A88396 /* Metrics.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -177,10 +180,11 @@
 				1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */,
 				1DE528A1273C201E004CB071 /* SkillViewController.swift in Sources */,
 				1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */,
+				1D756C44274257D900A88396 /* Metrics.swift in Sources */,
 				1DE5288B273C1EB4004CB071 /* SceneDelegate.swift in Sources */,
 				1DE528A4273C202D004CB071 /* HobbieViewController.swift in Sources */,
 				1DE528D2273FA0DF004CB071 /* Localization.swift in Sources */,
-				1DE528AE273C27BC004CB071 /* TabBar.swift in Sources */,
+				1DE528AE273C27BC004CB071 /* MyCVTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,6 @@
-//
-//  TabBar.swift
-//  myCV
-//
-//  Created by Leonid on 10.11.2021.
-//
-
 import UIKit
 
-class TabBar: UITabBarController {
+final class MyCVTabBar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

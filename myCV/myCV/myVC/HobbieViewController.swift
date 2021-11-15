@@ -1,20 +1,13 @@
-//
-//  HobbieViewController.swift
-//  myCV
-//
-//  Created by Leonid on 10.11.2021.
-//
-
 import UIKit
 import SnapKit
 
-class HobbieViewController: UIViewController {
+final class HobbieViewController: UIViewController {
     
     struct HobbieScreenContent {
-        internal let sportText = l10n("HOBBIE_VIEW_SPORT")
-        internal let descSportText = l10n("HOBBIE_VIEW_DESC_SPORT")
-        internal let artText = l10n("HOBBIE_VIEW_ART")
-        internal let descArtText = l10n("HOBBIE_VIEW_DESC_ART")
+        let sportText = l10n("HOBBIE_VIEW_SPORT")
+        let descSportText = l10n("HOBBIE_VIEW_DESC_SPORT")
+        let artText = l10n("HOBBIE_VIEW_ART")
+        let descArtText = l10n("HOBBIE_VIEW_DESC_ART")
     }
     
     private let contentView = UIView()
@@ -29,7 +22,7 @@ class HobbieViewController: UIViewController {
         self.configure()
     }
 
-    internal func setContent(model: HobbieScreenContent) {
+    private func setContent(model: HobbieScreenContent) {
         self.sportLabel.text = model.sportText
         self.descSportLabel.text = model.descSportText
         self.artLabel.text = model.artText
@@ -37,7 +30,7 @@ class HobbieViewController: UIViewController {
     }
 
     private func configure() {
-        self.setContent(model: .init())
+        self.setContent(model: HobbieScreenContent.init())
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
@@ -57,20 +50,20 @@ class HobbieViewController: UIViewController {
         self.view.backgroundColor = .white
 
         self.sportLabel.textColor = .black
-        self.sportLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
+        self.sportLabel.font = UIFont.systemFont(ofSize: Metrics.headingLabelSize, weight: Metrics.defaultLabelFontWeight)
         self.sportLabel.adjustsFontSizeToFitWidth = true
-        self.sportLabel.numberOfLines = 0
+        self.sportLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.descSportLabel.adjustsFontSizeToFitWidth = true
-        self.descSportLabel.numberOfLines = 0
+        self.descSportLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.artLabel.textColor = .black
-        self.artLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
+        self.artLabel.font = UIFont.systemFont(ofSize: Metrics.headingLabelSize, weight: Metrics.defaultLabelFontWeight)
         self.artLabel.adjustsFontSizeToFitWidth = true
-        self.artLabel.numberOfLines = 0
+        self.artLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.descArtLabel.adjustsFontSizeToFitWidth = true
-        self.descArtLabel.numberOfLines = 0
+        self.descArtLabel.numberOfLines = Metrics.defaultNumberOfLines
     }
 
     private func setConstraint() {

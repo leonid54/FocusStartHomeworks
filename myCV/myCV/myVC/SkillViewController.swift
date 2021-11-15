@@ -1,22 +1,15 @@
-//
-//  SkillViewController.swift
-//  myCV
-//
-//  Created by Leonid on 10.11.2021.
-//
-
 import UIKit
 import SnapKit
 
-class SkillViewController: UIViewController {
+final class SkillViewController: UIViewController {
     
     struct SkillScreenContent {
-        internal let devExperienceText = l10n("SKILL_VIEW_EXP")
-        internal let descDevExperienceText = l10n("SKILL_VIEW_DESC_EXP")
-        internal let languageExperienceText = l10n("SKILL_VIEW_LANG")
-        internal let descLanguageExperienceText = l10n("SKILL_VIEW_DESC_LANG")
-        internal let myExpectText = l10n("SKILL_VIEW_EXPECT")
-        internal let descMyExpectText = l10n("SKILL_VIEW_DESC_EXPECT")
+        let devExperienceText = l10n("SKILL_VIEW_EXP")
+        let descDevExperienceText = l10n("SKILL_VIEW_DESC_EXP")
+        let languageExperienceText = l10n("SKILL_VIEW_LANG")
+        let descLanguageExperienceText = l10n("SKILL_VIEW_DESC_LANG")
+        let myExpectText = l10n("SKILL_VIEW_EXPECT")
+        let descMyExpectText = l10n("SKILL_VIEW_DESC_EXPECT")
     }
     
     private let contentView = UIView()
@@ -33,7 +26,7 @@ class SkillViewController: UIViewController {
         self.configure()
     }
 
-    internal func setContent(model: SkillScreenContent) {
+    private func setContent(model: SkillScreenContent) {
         self.devExperienceLabel.text = model.devExperienceText
         self.descDevExperienceLabel.text = model.descDevExperienceText
         self.languageExperienceLabel.text = model.languageExperienceText
@@ -43,7 +36,7 @@ class SkillViewController: UIViewController {
     }
 
     private func configure() {
-        self.setContent(model: .init())
+        self.setContent(model: SkillScreenContent.init())
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
@@ -65,28 +58,28 @@ class SkillViewController: UIViewController {
         self.view.backgroundColor = .white
 
         self.devExperienceLabel.textColor = .black
-        self.devExperienceLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
+        self.devExperienceLabel.font = UIFont.systemFont(ofSize: Metrics.headingLabelSize, weight: Metrics.defaultLabelFontWeight)
         self.devExperienceLabel.adjustsFontSizeToFitWidth = true
-        self.devExperienceLabel.numberOfLines = 0
+        self.devExperienceLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.descDevExperienceLabel.adjustsFontSizeToFitWidth = true
-        self.descDevExperienceLabel.numberOfLines = 0
+        self.descDevExperienceLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.languageExperienceLabel.textColor = .black
-        self.languageExperienceLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
+        self.languageExperienceLabel.font = UIFont.systemFont(ofSize: Metrics.headingLabelSize, weight: Metrics.defaultLabelFontWeight)
         self.languageExperienceLabel.adjustsFontSizeToFitWidth = true
-        self.languageExperienceLabel.numberOfLines = 0
+        self.languageExperienceLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.descLanguageExperienceLabel.adjustsFontSizeToFitWidth = true
-        self.descLanguageExperienceLabel.numberOfLines = 0
+        self.descLanguageExperienceLabel.numberOfLines = Metrics.defaultNumberOfLines
         
         self.myExpectLabel.textColor = .black
-        self.myExpectLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
+        self.myExpectLabel.font = UIFont.systemFont(ofSize: Metrics.headingLabelSize, weight: Metrics.defaultLabelFontWeight)
         self.myExpectLabel.adjustsFontSizeToFitWidth = true
-        self.myExpectLabel.numberOfLines = 0
+        self.myExpectLabel.numberOfLines = Metrics.defaultNumberOfLines
 
         self.descMyExpectLabel.adjustsFontSizeToFitWidth = true
-        self.descMyExpectLabel.numberOfLines = 0
+        self.descMyExpectLabel.numberOfLines = Metrics.defaultNumberOfLines
     }
 
     private func setConstraint() {

@@ -1,19 +1,12 @@
-//
-//  ViewController.swift
-//  myCV
-//
-//  Created by Leonid on 10.11.2021.
-//
-
 import UIKit
 
-class MyInfoViewController: UIViewController {
+final class MyInfoViewController: UIViewController {
     struct MyInfoScreenContent {
-        internal let nameText = l10n("MY_INFO_NAME")
-        internal let surnameText = l10n("MY_INFO_SURNAME")
-        internal let ageText = l10n("MY_INFO_AGE")
-        internal let educationText = l10n("MY_INFO_EDUCATION")
-        internal let cityText = l10n("MY_INFO_CITY")
+        let nameText = l10n("MY_INFO_NAME")
+        let surnameText = l10n("MY_INFO_SURNAME")
+        let ageText = l10n("MY_INFO_AGE")
+        let educationText = l10n("MY_INFO_EDUCATION")
+        let cityText = l10n("MY_INFO_CITY")
     }
     
     private let newView = UIView()
@@ -32,7 +25,7 @@ class MyInfoViewController: UIViewController {
         self.configure()
     }
 
-    internal func setContent(model: MyInfoScreenContent) {
+    private func setContent(model: MyInfoScreenContent) {
         self.nameLabel.text = model.nameText
         self.surnameLabel.text = model.surnameText
         self.ageLabel.text = model.ageText
@@ -41,7 +34,7 @@ class MyInfoViewController: UIViewController {
     }
 
     private func configure() {
-        self.setContent(model: .init())
+        self.setContent(model: MyInfoScreenContent.init())
         self.addSubviews()
         self.setScrollConstraint()
         self.setContentConstraint()
@@ -87,7 +80,7 @@ class MyInfoViewController: UIViewController {
                         self.contentView.leadingAnchor.constraint     (equalTo: self.scrollView.leadingAnchor),
                                      
                         self.contentView.widthAnchor.constraint        (equalTo: self.scrollView.widthAnchor),
-                        self.contentView.heightAnchor.constraint       (equalTo: self.scrollView.heightAnchor, constant: 300)]) //поставил палку из-за бага на маленьких экранах
+                        self.contentView.heightAnchor.constraint       (equalTo: self.scrollView.heightAnchor, constant: 300)])
     }
     
     private func setContentConstraint() {
@@ -95,7 +88,7 @@ class MyInfoViewController: UIViewController {
             self.imageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 14),
             self.imageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -14),
             self.imageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 10),
-//            баг на маленьких экранах
+
             self.nameLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor , constant: 30),
             self.nameLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -20),
             self.nameLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor , constant: 20),
