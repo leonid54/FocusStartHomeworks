@@ -1,6 +1,8 @@
 import UIKit
+import SnapKit
 
 final class DetailViewController: UIViewController {
+
     var cityName = UILabel()
     var cityImageView = UIImageView()
     var currentPhoto = UIImage()

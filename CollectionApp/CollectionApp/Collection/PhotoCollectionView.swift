@@ -4,10 +4,10 @@ final class PhotoCollectionView: UIViewController {
 
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-          layout.sectionInset = UIEdgeInsets(top: -10, left: 10, bottom: 10, right: 10)
-          layout.itemSize = CGSize(width: 200, height: 200)
-          layout.scrollDirection = .horizontal
-
+        layout.sectionInset = UIEdgeInsets(top: -10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 200, height: 200)
+        layout.scrollDirection = .horizontal
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = Metrics.defaultColorView
         collectionView.alwaysBounceVertical = true
@@ -20,7 +20,7 @@ final class PhotoCollectionView: UIViewController {
     override func loadView() {
         self.view = self.collectionView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "MyPhotos"
@@ -44,13 +44,13 @@ extension PhotoCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return City.cities.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
         let city = City.cities[indexPath.row]
         cell.cityImageView.image = UIImage(named: city.image)
         cell.cityNameLabel.text = city.name
-
+        
         return cell
     }
 }
