@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "6-Kaliningrad-e1534226241773-1.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "6-Kaliningrad-e1534226241773.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "6-Kaliningrad-e1534226241773-2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
