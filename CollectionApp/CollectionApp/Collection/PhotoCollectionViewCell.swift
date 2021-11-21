@@ -50,8 +50,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     
     private func setConstraint() {
         self.cityImageView.snp.makeConstraints { (make) in
-            make.left.top.equalToSuperview()
-            make.right.equalToSuperview()
+            make.edges.equalToSuperview()
         }
 
         self.cityNameLabel.snp.makeConstraints { (make) in

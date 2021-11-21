@@ -42,7 +42,6 @@ final class DetailViewController: UIViewController {
         self.cityImageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.left.right.equalToSuperview()
         }
         
         self.cityName.snp.makeConstraints { (make) in
