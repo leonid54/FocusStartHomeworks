@@ -45,9 +45,9 @@ final class DetailViewController: UIViewController {
         }
         
         self.cityName.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(12)
-            make.right.equalToSuperview().offset(-12)
-            make.top.equalTo(self.cityImageView.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(Metrics.defaultLeftCityNameConstraint)
+            make.right.equalToSuperview().offset(Metrics.defaultRightCityNameConstraint)
+            make.top.equalTo(self.cityImageView.snp.bottom).offset(Metrics.defaultTopCityNameConstraint)
         }
     }
 }

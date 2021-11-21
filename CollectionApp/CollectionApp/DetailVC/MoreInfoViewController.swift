@@ -29,7 +29,7 @@ final class MoreInfoViewController: UIViewController {
     }
 
     private func setConfig() {
-        self.navBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44)
+        self.navBar.frame = CGRect(x: Metrics.defaultRange, y: Metrics.defaultRange, width: self.view.frame.width, height: Metrics.defaultHeightForNavBar)
         let navItem = UINavigationItem(title: "Description")
         self.view.backgroundColor = Metrics.defaultColorView
         self.deleteButton.title = "Back"

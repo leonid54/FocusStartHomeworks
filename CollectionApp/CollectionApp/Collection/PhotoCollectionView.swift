@@ -4,8 +4,8 @@ final class PhotoCollectionView: UIViewController {
 
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: -10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 200, height: 200)
+        layout.sectionInset = Metrics.defaultCollectionViewEdgeInsets
+        layout.itemSize = Metrics.defaultCollectionViewSize
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

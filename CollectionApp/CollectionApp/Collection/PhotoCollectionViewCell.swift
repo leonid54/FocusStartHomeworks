@@ -56,8 +56,8 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
         self.cityNameLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.top.equalTo(self.cityImageView.snp.bottom).offset(-10)
-            make.height.equalTo(20)
+            make.top.equalTo(self.cityImageView.snp.bottom).offset(Metrics.defaultTopCityNameLabelConstraint)
+            make.height.equalTo(Metrics.defaultHeightCityNameLabelConstraint)
         }
     }
 
