@@ -81,6 +81,7 @@
 		1D22E8A9274653C400D8A4A8 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				1D22E8BC274665B100D8A4A8 /* CityModel.swift */,
 				1D22E8932743F42F00D8A4A8 /* PhotoCollectionView.swift */,
 				1D22E8AB2746554100D8A4A8 /* PhotoCollectionViewCell.swift */,
 			);
@@ -100,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				1D22E8C72748C0B700D8A4A8 /* Metrics.swift */,
-				1D22E8BC274665B100D8A4A8 /* CityModel.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

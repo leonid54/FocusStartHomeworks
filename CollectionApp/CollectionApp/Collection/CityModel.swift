@@ -1,9 +1,9 @@
 import UIKit
 
 struct City {
-    var image: String = ""
-    var name: String = ""
-    var description: String = ""
+    let image: String
+    let name: String
+    let description: String
 }
 
 extension City {

@@ -3,10 +3,17 @@ import SnapKit
 
 final class PhotoCollectionViewCell: UICollectionViewCell {
     static let identifier = "PhotoCollectonViewCell"
+
+    private let cityImageView = UIImageView()
+    private let cityNameLabel = UILabel()
     
-    let cityImageView = UIImageView()
-    let cityNameLabel = UILabel()
-    private var myPhoto = UIImage()
+    var image: City? {
+        didSet {
+            guard let image = image else { return }
+            self.cityImageView.image = UIImage(named: image.name)
+            self.cityNameLabel.text = image.name
+        }
+    }
     
     override var isHighlighted: Bool {
         didSet {
@@ -23,8 +30,6 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConfig() {
-        self.myPhoto = UIImage(named: "myPhoto") ?? myPhoto
-        self.cityImageView.image = myPhoto
         self.cityImageView.contentMode = .scaleAspectFit
     }
     

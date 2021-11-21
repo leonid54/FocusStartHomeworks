@@ -17,6 +17,8 @@ final class PhotoCollectionView: UIViewController {
         return collectionView
     }()
     
+    private let city = City.cities
+    
     override func loadView() {
         self.view = self.collectionView
     }
@@ -31,7 +33,7 @@ extension PhotoCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
         let moreInfoVC = MoreInfoViewController()
-        let city = City.cities[indexPath.row]
+        let city = self.city[indexPath.row]
         detailVC.currentPhoto = UIImage(named: city.image) ?? UIImage.init()
         detailVC.cityImageView.image = detailVC.currentPhoto
         detailVC.cityName.text = city.name
@@ -42,14 +44,12 @@ extension PhotoCollectionView: UICollectionViewDelegate {
 
 extension PhotoCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return City.cities.count
+        return self.city.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        let city = City.cities[indexPath.row]
-        cell.cityImageView.image = UIImage(named: city.image)
-        cell.cityNameLabel.text = city.name
+        cell.image = self.city[indexPath.item]
         
         return cell
     }
