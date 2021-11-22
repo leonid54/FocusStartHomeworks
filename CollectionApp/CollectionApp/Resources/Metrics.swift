@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 enum Metrics {
     static let defaultColorView: UIColor = .white
@@ -15,4 +16,5 @@ enum Metrics {
     static let defaultHeightCityNameLabelConstraint: Int = 20
     static let defaultCollectionViewSize: CGSize = CGSize(width: 200, height: 200)
     static let defaultCollectionViewEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    static let defaultDividedBy: ConstraintMultiplierTarget = 2
 }
