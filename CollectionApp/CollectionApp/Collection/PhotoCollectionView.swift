@@ -32,12 +32,11 @@ final class PhotoCollectionView: UIViewController {
 extension PhotoCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
-        let moreInfoVC = MoreInfoViewController()
         let city = self.city[indexPath.row]
         detailVC.currentPhoto = UIImage(named: city.image) ?? UIImage.init()
         detailVC.cityImageView.image = detailVC.currentPhoto
         detailVC.cityName.text = city.name
-        moreInfoVC.infoLabel.text = city.description
+        detailVC.cityInfo = city.description
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

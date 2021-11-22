@@ -6,6 +6,7 @@ final class DetailViewController: UIViewController {
     var cityName = UILabel()
     var cityImageView = UIImageView()
     var currentPhoto = UIImage()
+    var cityInfo = "No info"
     private var cityInfoButton = UIBarButtonItem()
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ final class DetailViewController: UIViewController {
     
     @objc func getInfo() {
         let moreInfoVC = MoreInfoViewController()
+        moreInfoVC.infoLabel.text = self.cityInfo
         self.present(moreInfoVC, animated: true, completion: nil)
     }
 

@@ -11,8 +11,8 @@ enum Metrics {
     static let defaultLeftCityNameConstraint: Int = 12
     static let defaultRightCityNameConstraint: Int = -12
     static let defaultTopCityNameConstraint: Int = 10
-    static let defaultTopCityNameLabelConstraint: Int = -10
+    static let defaultTopCityNameLabelConstraint: Int = 10
     static let defaultHeightCityNameLabelConstraint: Int = 20
     static let defaultCollectionViewSize: CGSize = CGSize(width: 200, height: 200)
-    static let defaultCollectionViewEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: -10, left: 10, bottom: 10, right: 10)
+    static let defaultCollectionViewEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 }

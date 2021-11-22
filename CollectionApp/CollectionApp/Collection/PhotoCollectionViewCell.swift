@@ -30,7 +30,8 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     private func setConfig() {
-        self.cityImageView.contentMode = .scaleAspectFit
+        self.cityImageView.contentMode = .scaleAspectFill
+        self.cityImageView.clipsToBounds = true
     }
     
     override init(frame: CGRect) {
@@ -50,7 +51,8 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     
     private func setConstraint() {
         self.cityImageView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(self.cityImageView.snp.width).dividedBy(2)
         }
 
         self.cityNameLabel.snp.makeConstraints { (make) in
