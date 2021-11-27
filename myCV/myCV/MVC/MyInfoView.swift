@@ -1,6 +1,8 @@
 import UIKit
 
-final class MyInfoViewController: UIViewController {
+final class MyInfoView: UIView {
+    private weak var controller: MyInfoViewController?
+
     struct MyInfoScreenContent {
         let nameText = l10n("MY_INFO_NAME")
         let surnameText = l10n("MY_INFO_SURNAME")
@@ -69,10 +71,10 @@ final class MyInfoViewController: UIViewController {
     }
 
     private func setScrollConstraint() {
-        NSLayoutConstraint.activate([self.scrollView.topAnchor.constraint         (equalTo: self.view.topAnchor),
-                                     self.scrollView.bottomAnchor.constraint      (equalTo: self.view.bottomAnchor),
-                                     self.scrollView.leadingAnchor.constraint     (equalTo: self.view.leadingAnchor),
-                                     self.scrollView.trailingAnchor.constraint    (equalTo: self.view.trailingAnchor),
+        NSLayoutConstraint.activate([self.scrollView.topAnchor.constraint         (equalTo: self.topAnchor),
+                                     self.scrollView.bottomAnchor.constraint      (equalTo: self.bottomAnchor),
+                                     self.scrollView.leadingAnchor.constraint     (equalTo: self.leadingAnchor),
+                                     self.scrollView.trailingAnchor.constraint    (equalTo: self.trailingAnchor),
                                      
                         self.contentView.topAnchor.constraint         (equalTo: self.scrollView.topAnchor),
                         self.contentView.bottomAnchor.constraint      (equalTo: self.scrollView.bottomAnchor),

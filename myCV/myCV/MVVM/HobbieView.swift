@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-final class HobbieViewController: UIViewController {
+final class HobbieView: UIViewController {
     
     struct HobbieScreenContent {
         let sportText = l10n("HOBBIE_VIEW_SPORT")

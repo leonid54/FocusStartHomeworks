@@ -15,7 +15,7 @@ final class MyCVTabBar: UITabBarController {
         viewControllers = [
             createNavController(for: MyInfoViewController(), title: l10n("TAB_BAR_INFO"), image: UIImage(systemName: "person.circle")!),
             createNavController(for: SkillViewController(), title: l10n("TAB_BAR_SKILL"), image: UIImage(systemName: "star")!),
-            createNavController(for: HobbieViewController(), title: l10n("TAB_BAR_HOBBIE"), image: UIImage(systemName: "music.house")!)
+            createNavController(for: HobbieView(), title: l10n("TAB_BAR_HOBBIE"), image: UIImage(systemName: "music.house")!)
         ]
     }
     

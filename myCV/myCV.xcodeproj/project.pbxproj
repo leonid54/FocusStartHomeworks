@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3146F02750F80B00345AAD /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3146EF2750F80B00345AAD /* MyInfoView.swift */; };
+		1D3146F42750F84900345AAD /* MyInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3146F32750F84900345AAD /* MyInfoModel.swift */; };
 		1D756C44274257D900A88396 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D756C43274257D900A88396 /* Metrics.swift */; };
 		1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE52888273C1EB4004CB071 /* AppDelegate.swift */; };
 		1DE5288B273C1EB4004CB071 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D3146EF2750F80B00345AAD /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		1D3146F32750F84900345AAD /* MyInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoModel.swift; sourceTree = "<group>"; };
 		1D756C43274257D900A88396 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		1DE52885273C1EB4004CB071 /* myCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE52888273C1EB4004CB071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +54,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D3146EC2750F70600345AAD /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				1DE528A0273C201E004CB071 /* SkillViewController.swift */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		1D3146ED2750F70C00345AAD /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				1DE5288C273C1EB4004CB071 /* MyInfoViewController.swift */,
+				1D3146EF2750F80B00345AAD /* MyInfoView.swift */,
+				1D3146F32750F84900345AAD /* MyInfoModel.swift */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		1D3146EE2750F71300345AAD /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				1DE528A3273C202D004CB071 /* HobbieViewController.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
 		1DE5287C273C1EB4004CB071 = {
 			isa = PBXGroup;
 			children = (
@@ -69,7 +99,9 @@
 		1DE52887273C1EB4004CB071 /* myCV */ = {
 			isa = PBXGroup;
 			children = (
-				1DE528B6273D4F48004CB071 /* myVC */,
+				1D3146ED2750F70C00345AAD /* MVC */,
+				1D3146EC2750F70600345AAD /* MVP */,
+				1D3146EE2750F71300345AAD /* MVVM */,
 				1DE52888273C1EB4004CB071 /* AppDelegate.swift */,
 				1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */,
 				1DE528AD273C27BC004CB071 /* MyCVTabBar.swift */,
@@ -78,16 +110,6 @@
 				1DE528C8273FA006004CB071 /* Resources */,
 			);
 			path = myCV;
-			sourceTree = "<group>";
-		};
-		1DE528B6273D4F48004CB071 /* myVC */ = {
-			isa = PBXGroup;
-			children = (
-				1DE5288C273C1EB4004CB071 /* MyInfoViewController.swift */,
-				1DE528A0273C201E004CB071 /* SkillViewController.swift */,
-				1DE528A3273C202D004CB071 /* HobbieViewController.swift */,
-			);
-			path = myVC;
 			sourceTree = "<group>";
 		};
 		1DE528C8273FA006004CB071 /* Resources */ = {
@@ -178,6 +200,7 @@
 			files = (
 				1DE52893273C1EB4004CB071 /* myCV.xcdatamodeld in Sources */,
 				1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */,
+				1D3146F02750F80B00345AAD /* MyInfoView.swift in Sources */,
 				1DE528A1273C201E004CB071 /* SkillViewController.swift in Sources */,
 				1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */,
 				1D756C44274257D900A88396 /* Metrics.swift in Sources */,
@@ -185,6 +208,7 @@
 				1DE528A4273C202D004CB071 /* HobbieViewController.swift in Sources */,
 				1DE528D2273FA0DF004CB071 /* Localization.swift in Sources */,
 				1DE528AE273C27BC004CB071 /* MyCVTabBar.swift in Sources */,
+				1D3146F42750F84900345AAD /* MyInfoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
