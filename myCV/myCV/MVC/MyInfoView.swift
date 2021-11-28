@@ -27,7 +27,6 @@ final class MyInfoView: UIView {
     }
 
     func configure() {
-        self.setContent()
         self.addSubviews()
         self.setScrollConstraint()
         self.setContentConstraint()

@@ -21,6 +21,7 @@ final class MyInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presentLabelText()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +35,6 @@ final class MyInfoViewController: UIViewController {
     func presentLabelText() {
         let modelData = self.myInfoModel?.getLabelText()
         let presentData = PresentationModel(presentationNameText: "\(modelData?.nameText)", presentationSurnameText: "\(modelData?.surnameText)", presentationAgeText: "\(modelData?.ageText)", presentationEducationText: "\(modelData?.educationText)", presentationCityText: "\(modelData?.cityText)")
-//        self.myInfoModel
+        self.myInfoView?.setContent(model: presentData)
     }
 }
