@@ -18,7 +18,7 @@ final class MyInfoView: UIView {
         self.controller = controller
     }
 
-    func setContent(model: PresentationModel) {
+    func setMyInfoContent(model: PresentationModel) {
         self.nameLabel.text = model.presentationNameText
         self.surnameLabel.text = model.presentationSurnameText
         self.ageLabel.text = model.presentationAgeText
@@ -26,7 +26,7 @@ final class MyInfoView: UIView {
         self.cityLabel.text = model.presentationCityText
     }
 
-    func configure() {
+    func configureMyInfo() {
         self.addSubviews()
         self.setScrollConstraint()
         self.setContentConstraint()

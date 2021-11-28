@@ -25,7 +25,7 @@ final class MyInfoViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        self.myInfoView?.configure()
+        self.myInfoView?.configureMyInfo()
         self.myInfoView?.backgroundColor = .white
         if let myInfoView = myInfoView {
             self.view.addSubview(myInfoView)
@@ -35,6 +35,6 @@ final class MyInfoViewController: UIViewController {
     func presentLabelText() {
         let modelData = self.myInfoModel?.getLabelText()
         let presentData = PresentationModel(presentationNameText: "\(modelData?.nameText)", presentationSurnameText: "\(modelData?.surnameText)", presentationAgeText: "\(modelData?.ageText)", presentationEducationText: "\(modelData?.educationText)", presentationCityText: "\(modelData?.cityText)")
-        self.myInfoView?.setContent(model: presentData)
+        self.myInfoView?.setMyInfoContent(model: presentData)
     }
 }

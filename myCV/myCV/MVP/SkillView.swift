@@ -11,7 +11,7 @@ final class SkillView: UIView {
     private let myExpectLabel = UILabel()
     private let descMyExpectLabel = UILabel()
 
-    private func setContent(model: SkillPresentModel) {
+    func setSkillContent(model: SkillPresentModel) {
         self.devExperienceLabel.text = model.devExperienceText
         self.descDevExperienceLabel.text = model.descDevExperienceText
         self.languageExperienceLabel.text = model.languageExperienceText
@@ -20,7 +20,7 @@ final class SkillView: UIView {
         self.descMyExpectLabel.text = model.descMyExpectText
     }
 
-    func configure() {
+    func configureSkillView() {
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
