@@ -11,6 +11,10 @@
 		1D3146F42750F84900345AAD /* MyInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3146F32750F84900345AAD /* MyInfoModel.swift */; };
 		1D3147042752157E00345AAD /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3147032752157E00345AAD /* PresentationModel.swift */; };
 		1D756C44274257D900A88396 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D756C43274257D900A88396 /* Metrics.swift */; };
+		1DCF7E042753E581009730E8 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E032753E581009730E8 /* SkillModel.swift */; };
+		1DCF7E082753E597009730E8 /* SkillPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E062753E597009730E8 /* SkillPresenter.swift */; };
+		1DCF7E092753E597009730E8 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E072753E597009730E8 /* SkillView.swift */; };
+		1DCF7E0C2753E7A3009730E8 /* SkillPresentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E0B2753E7A3009730E8 /* SkillPresentModel.swift */; };
 		1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE52888273C1EB4004CB071 /* AppDelegate.swift */; };
 		1DE5288B273C1EB4004CB071 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */; };
 		1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288C273C1EB4004CB071 /* MyInfoViewController.swift */; };
@@ -29,6 +33,10 @@
 		1D3146F32750F84900345AAD /* MyInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoModel.swift; sourceTree = "<group>"; };
 		1D3147032752157E00345AAD /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		1D756C43274257D900A88396 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		1DCF7E032753E581009730E8 /* SkillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
+		1DCF7E062753E597009730E8 /* SkillPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillPresenter.swift; sourceTree = "<group>"; };
+		1DCF7E072753E597009730E8 /* SkillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
+		1DCF7E0B2753E7A3009730E8 /* SkillPresentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPresentModel.swift; sourceTree = "<group>"; };
 		1DE52885273C1EB4004CB071 /* myCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE52888273C1EB4004CB071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +67,11 @@
 		1D3146EC2750F70600345AAD /* MVP */ = {
 			isa = PBXGroup;
 			children = (
+				1DCF7E032753E581009730E8 /* SkillModel.swift */,
+				1DCF7E062753E597009730E8 /* SkillPresenter.swift */,
+				1DCF7E072753E597009730E8 /* SkillView.swift */,
 				1DE528A0273C201E004CB071 /* SkillViewController.swift */,
+				1DCF7E0B2753E7A3009730E8 /* SkillPresentModel.swift */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -203,14 +215,18 @@
 			files = (
 				1DE52893273C1EB4004CB071 /* myCV.xcdatamodeld in Sources */,
 				1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */,
+				1DCF7E082753E597009730E8 /* SkillPresenter.swift in Sources */,
+				1DCF7E0C2753E7A3009730E8 /* SkillPresentModel.swift in Sources */,
 				1D3146F02750F80B00345AAD /* MyInfoView.swift in Sources */,
 				1DE528A1273C201E004CB071 /* SkillViewController.swift in Sources */,
 				1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */,
+				1DCF7E092753E597009730E8 /* SkillView.swift in Sources */,
 				1D756C44274257D900A88396 /* Metrics.swift in Sources */,
 				1DE5288B273C1EB4004CB071 /* SceneDelegate.swift in Sources */,
 				1D3147042752157E00345AAD /* PresentationModel.swift in Sources */,
 				1DE528A4273C202D004CB071 /* HobbieViewController.swift in Sources */,
 				1DE528D2273FA0DF004CB071 /* Localization.swift in Sources */,
+				1DCF7E042753E581009730E8 /* SkillModel.swift in Sources */,
 				1DE528AE273C27BC004CB071 /* MyCVTabBar.swift in Sources */,
 				1D3146F42750F84900345AAD /* MyInfoModel.swift in Sources */,
 			);

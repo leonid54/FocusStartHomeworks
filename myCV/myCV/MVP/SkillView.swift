@@ -1,14 +1,6 @@
 import UIKit
 
 final class SkillView: UIView {
-    struct SkillScreenContent {
-        let devExperienceText = l10n("SKILL_VIEW_EXP")
-        let descDevExperienceText = l10n("SKILL_VIEW_DESC_EXP")
-        let languageExperienceText = l10n("SKILL_VIEW_LANG")
-        let descLanguageExperienceText = l10n("SKILL_VIEW_DESC_LANG")
-        let myExpectText = l10n("SKILL_VIEW_EXPECT")
-        let descMyExpectText = l10n("SKILL_VIEW_DESC_EXPECT")
-    }
     
     private let contentView = UIView()
     private let scrollView = UIScrollView()
@@ -19,12 +11,7 @@ final class SkillView: UIView {
     private let myExpectLabel = UILabel()
     private let descMyExpectLabel = UILabel()
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.configure()
-//    }
-
-    private func setContent(model: SkillScreenContent) {
+    private func setContent(model: SkillPresentModel) {
         self.devExperienceLabel.text = model.devExperienceText
         self.descDevExperienceLabel.text = model.descDevExperienceText
         self.languageExperienceLabel.text = model.languageExperienceText
@@ -33,15 +20,14 @@ final class SkillView: UIView {
         self.descMyExpectLabel.text = model.descMyExpectText
     }
 
-    private func configure() {
-        self.setContent(model: SkillScreenContent.init())
+    func configure() {
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
     }
 
     private func addSubviews() {
-        self.view.addSubview(self.scrollView)
+        self.addSubview(self.scrollView)
         self.scrollView.addSubview(self.contentView)
 
         self.contentView.addSubview(self.devExperienceLabel)
@@ -53,8 +39,6 @@ final class SkillView: UIView {
     }
 
     private func setConfig() {
-        self.view.backgroundColor = .white
-
         self.devExperienceLabel.textColor = .black
         self.devExperienceLabel.font = UIFont.systemFont(ofSize: Metrics.headingLabelSize, weight: Metrics.defaultLabelFontWeight)
         self.devExperienceLabel.adjustsFontSizeToFitWidth = true
