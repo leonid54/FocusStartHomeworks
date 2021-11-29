@@ -17,6 +17,7 @@
 		1DCF7E0C2753E7A3009730E8 /* SkillPresentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E0B2753E7A3009730E8 /* SkillPresentModel.swift */; };
 		1DCF7E102753EDC7009730E8 /* HobbieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E0F2753EDC7009730E8 /* HobbieModel.swift */; };
 		1DCF7E132753EDCF009730E8 /* HobbieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E122753EDCF009730E8 /* HobbieViewModel.swift */; };
+		1DCF7E1B2755453B009730E8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF7E1A2755453B009730E8 /* Observable.swift */; };
 		1DE52889273C1EB4004CB071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE52888273C1EB4004CB071 /* AppDelegate.swift */; };
 		1DE5288B273C1EB4004CB071 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */; };
 		1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE5288C273C1EB4004CB071 /* MyInfoViewController.swift */; };
@@ -41,6 +42,7 @@
 		1DCF7E0B2753E7A3009730E8 /* SkillPresentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPresentModel.swift; sourceTree = "<group>"; };
 		1DCF7E0F2753EDC7009730E8 /* HobbieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HobbieModel.swift; sourceTree = "<group>"; };
 		1DCF7E122753EDCF009730E8 /* HobbieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HobbieViewModel.swift; sourceTree = "<group>"; };
+		1DCF7E1A2755453B009730E8 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		1DE52885273C1EB4004CB071 /* myCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE52888273C1EB4004CB071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DE5288A273C1EB4004CB071 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				1DE528A3273C202D004CB071 /* HobbieViewController.swift */,
 				1DCF7E0F2753EDC7009730E8 /* HobbieModel.swift */,
 				1DCF7E122753EDCF009730E8 /* HobbieViewModel.swift */,
+				1DCF7E1A2755453B009730E8 /* Observable.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCF7E1B2755453B009730E8 /* Observable.swift in Sources */,
 				1DE52893273C1EB4004CB071 /* myCV.xcdatamodeld in Sources */,
 				1DE5288D273C1EB4004CB071 /* MyInfoViewController.swift in Sources */,
 				1DCF7E082753E597009730E8 /* SkillPresenter.swift in Sources */,
