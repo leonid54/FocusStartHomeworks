@@ -1,12 +1,20 @@
 import UIKit
 
-final class PickViewController: UIViewController {
-    private var pickView: PickView
-    private var pickPresenter: PickPresenter
+protocol IPickViewController: AnyObject {
     
-    init() {
+}
+
+final class PickViewController: UIViewController {
+    private var pickView: IPickView
+    private var pickPresenter: IPickPresenter
+    
+    struct Dependencies {
+        let presenter: IPickPresenter
+    }
+    
+    init(dependencies: Dependencies) {
         self.pickView = PickView(frame: UIScreen.main.bounds)
-        self.pickPresenter = PickPresenter()
+        self.pickPresenter = dependencies.presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,7 +32,6 @@ final class PickViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.view.addSubview(pickView)
-        self.pickView.configurePickView()
+        self.view.addSubview(pickView as! UIView)
     }
 }

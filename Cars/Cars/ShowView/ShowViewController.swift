@@ -1,8 +1,37 @@
-//
-//  ShowViewController.swift
-//  Cars
-//
-//  Created by Leonid on 04.12.2021.
-//
+import UIKit
 
-import Foundation
+protocol IShowViewController: AnyObject {
+    
+}
+
+final class ShowViewController: UIViewController {
+    private var showView: IShowView
+    private var showPresenter: IShowPresenter
+    
+    struct Dependencies {
+        let presenter: IShowPresenter
+    }
+    
+    init(dependencies: Dependencies) {
+        self.showView = ShowView(frame: UIScreen.main.bounds)
+        self.showPresenter = dependencies.presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        self.showPresenter.loadView(controller: self, view: self.showView)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.view.addSubview(showView as! UIView)
+    }
+}

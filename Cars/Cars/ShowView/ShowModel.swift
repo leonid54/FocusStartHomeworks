@@ -1,8 +1,12 @@
-//
-//  ShowModel.swift
-//  Cars
-//
-//  Created by Leonid on 04.12.2021.
-//
+import UIKit
 
-import Foundation
+final class ShowModel {
+    
+    struct ShowScreenContent {
+
+    }
+    
+    func getShowText() -> ShowScreenContent {
+        ShowScreenContent()
+    }
+}

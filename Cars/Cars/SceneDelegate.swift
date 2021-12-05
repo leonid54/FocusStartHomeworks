@@ -3,14 +3,18 @@ import UIKit
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var navVc: UINavigationController?
+    var vc: UIViewController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        let vc = PickViewController()
-        let rootNC = UINavigationController(rootViewController: vc)
-        self.window?.rootViewController = rootNC
+        self.window = UIWindow(windowScene: windowScene)
+        self.vc = PickAssembly.makeModule()
+        guard let vc = self.vc else {
+            return
+        }
+        self.navVc = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController = self.navVc
         self.window?.makeKeyAndVisible()
     }
 }

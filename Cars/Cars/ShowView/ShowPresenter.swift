@@ -1,8 +1,53 @@
-//
-//  ShowPresenter.swift
-//  Cars
-//
-//  Created by Leonid on 04.12.2021.
-//
+import UIKit
 
-import Foundation
+protocol IShowPresenter {
+    func loadView(controller: ShowViewController, view: IShowView)
+}
+
+final class ShowPresenter {
+    private var model = ShowModel()
+    private weak var controller: ShowViewController?
+    private var view: IShowView?
+    private let router: ShowRouter
+    
+    struct Dependencies {
+        let model: ShowModel
+        let router: ShowRouter
+    }
+
+    init(dependencies: Dependencies) {
+        self.model = dependencies.model
+        self.router = dependencies.router
+    }
+}
+
+private extension PickPresenter
+{
+//    private func onTouched() {
+//        guard let view = view else {
+//            return
+//        }
+//        self.view?.touched()
+//        self.router.next()
+//    }
+
+//    private func setHandlers() {
+//    }
+    
+//    func presentPickText() {
+//        let modelData = self.model.getPickText()
+//        let presentData = PickPresentModel(presentPickLabelText: "\(modelData.pickLabelText)", presentCarLabelText: "\(modelData.carLabelText)")
+//        self.view?.setPickContent(model: presentData)
+//    }
+}
+
+extension ShowPresenter: IShowPresenter
+{
+    func loadView(controller: ShowViewController, view: IShowView) {
+        self.controller = controller
+        self.view = view
+//        self.presentPickText()
+//        self.setHandlers()
+    }
+}
+

@@ -1,9 +1,13 @@
 import UIKit
+protocol IPickTableView: UIView {
+    var onTouchedHandler: ((String) -> Void)? { get set }
+}
 
-final class PickTableView: UIView {
+final class PickTableView: UIView, IPickTableView {
     private var PickTableView: UITableView = UITableView()
     private var contentModel = Car.cars
-
+    var onTouchedHandler: ((String) -> Void)?
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.configure()
@@ -12,11 +16,6 @@ final class PickTableView: UIView {
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//
-//    internal func setContent(model: [VacancyInfo]) {
-//        self.contentModel = model
-//        self.hotVacanciesTableView.reloadData()
-//    }
 
     private func configure() {
         self.setConfig()
@@ -45,21 +44,24 @@ final class PickTableView: UIView {
     }
 }
 
-extension PickTableView: UITableViewDataSource, UITableViewDelegate {
+extension PickTableView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let car = self.contentModel[indexPath.row]
+        self.onTouchedHandler?(car.name)
+    }
+}
+
+extension PickTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.contentModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = PickTableViewCell()
-
-//        if let vacancy = self.contentModel?[indexPath.row] {
-//            cell.set(vacancy: vacancy)
-//        }
+        cell.configure()
+        let car = self.contentModel[indexPath.row]
+        cell.set(model: car)
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 77
     }
 }

@@ -1,5 +1,10 @@
 import UIKit
 import SnapKit
+protocol IPickView {
+    func setPickContent(model: PickPresentModel)
+    var onTouchedHandler: ((String) -> Void)? { get set }
+    func touched()
+}
 
 final class PickView: UIView {
     private let contentView = UIView()
@@ -7,28 +12,25 @@ final class PickView: UIView {
     private let pickLabel = UILabel()
     private let carLabel = UILabel()
     private let tableView = PickTableView()
-    
-    func setPickContent(model: PickPresentModel) {
-        self.pickLabel.text = model.presentPickLabelText
-        self.carLabel.text = model.presentCarLabelText
+    var onTouchedHandler: ((String) -> Void)?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.configureView()
     }
     
-    func configurePickView() {
+    private func configureView() {
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
     }
-    
-    private func addSubviews() {
-        self.addSubview(self.scrollView)
-        self.scrollView.addSubview(self.contentView)
-        
-        self.contentView.addSubview(self.pickLabel)
-        self.contentView.addSubview(self.carLabel)
-        self.contentView.addSubview(self.tableView)
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setConfig() {
+        self.backgroundColor = .white
         self.pickLabel.textColor = .black
         self.pickLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         
@@ -63,7 +65,32 @@ final class PickView: UIView {
         self.tableView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.contentView)
             make.top.equalTo(self.carLabel.snp.bottom).offset(22)
+            make.height.equalToSuperview()
         }
     }
 }
    
+private extension PickView {
+    
+    private func addSubviews() {
+        self.addSubview(self.scrollView)
+        self.scrollView.addSubview(self.contentView)
+        
+        self.contentView.addSubview(self.pickLabel)
+        self.contentView.addSubview(self.carLabel)
+        self.contentView.addSubview(self.tableView)
+    }
+}
+
+extension PickView: IPickView {
+
+    func touched() {
+        self.onTouchedHandler = { [weak self] model in
+            self?.tableView.onTouchedHandler?(model)
+        }
+    }
+    func setPickContent(model: PickPresentModel) {
+        self.pickLabel.text = model.presentPickLabelText
+        self.carLabel.text = model.presentCarLabelText
+    }
+}
