@@ -138,7 +138,7 @@ private extension ShowView {
 extension ShowView: IShowView {
 
     func setShowContent(model: ShowPresentModel) {
-        self.priceTopLabel.text = model.presentPickLabelText
-        self.priceBottomLabel.text = model.presentCarLabelText
+//        self.priceTopLabel.text = model.presentPickLabelText
+//        self.priceBottomLabel.text = model.presentCarLabelText
     }
 }

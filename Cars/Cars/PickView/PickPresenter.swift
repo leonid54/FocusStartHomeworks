@@ -23,15 +23,14 @@ final class PickPresenter {
 
 private extension PickPresenter
 {
-    private func onTouched() {
+
+    private func setHandlers() {
         guard let view = view else {
             return
         }
-        self.view?.touched()
-        self.router.next()
-    }
-
-    private func setHandlers() {
+        self.view?.onTouchedHandler = { [weak self] model in
+            self?.router.next(name: model)
+        }
     }
     
     func presentPickText() {

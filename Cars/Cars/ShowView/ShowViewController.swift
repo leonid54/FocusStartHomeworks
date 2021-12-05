@@ -7,14 +7,10 @@ protocol IShowViewController: AnyObject {
 final class ShowViewController: UIViewController {
     private var showView: IShowView
     private var showPresenter: IShowPresenter
-    
-    struct Dependencies {
-        let presenter: IShowPresenter
-    }
-    
-    init(dependencies: Dependencies) {
+
+    init(presenter: IShowPresenter) {
         self.showView = ShowView(frame: UIScreen.main.bounds)
-        self.showPresenter = dependencies.presenter
+        self.showPresenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     

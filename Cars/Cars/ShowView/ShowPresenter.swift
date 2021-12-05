@@ -9,15 +9,9 @@ final class ShowPresenter {
     private weak var controller: ShowViewController?
     private var view: IShowView?
     private let router: ShowRouter
-    
-    struct Dependencies {
-        let model: ShowModel
-        let router: ShowRouter
-    }
 
-    init(dependencies: Dependencies) {
-        self.model = dependencies.model
-        self.router = dependencies.router
+    init(router: ShowRouter, car: String) {
+        self.router = router
     }
 }
 

@@ -1,16 +1,16 @@
 import UIKit
 
-final class ShowAssembly
-{
-    static func makeModule() -> UIViewController {
+final class ShowAssembly {
+    
+    struct Parameters {
+        var car: String
+    }
+
+    static func makeModule(parameters: Parameters) -> UIViewController {
         let model = ShowModel()
         let router = ShowRouter()
-        let presenter = ShowPresenter(
-            dependencies: .init(model: model, router: router)
-        )
-        let controller = ShowViewController(
-            dependencies: .init(presenter: presenter)
-        )
+        let presenter = ShowPresenter(router: router, car: parameters.car)
+        let controller = ShowViewController(presenter: presenter)
         return controller
     }
 }

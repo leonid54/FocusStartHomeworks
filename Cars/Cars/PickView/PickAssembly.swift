@@ -12,10 +12,8 @@ final class PickAssembly
         let controller = PickViewController(
             dependencies: .init(presenter: presenter)
         )
-        let targetController = ShowAssembly.makeModule()
 
         router.setRootController(controller: controller)
-        router.setTargetController(controller: targetController as! ShowViewController)
 
         return controller
     }
