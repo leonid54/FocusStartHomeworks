@@ -8,7 +8,7 @@ final class PickTableView: UIView, IPickTableView {
     private var contentModel = Car.cars
     var onTouchedHandler: ((String) -> Void)?
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.configure()
     }

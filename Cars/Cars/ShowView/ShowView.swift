@@ -138,7 +138,13 @@ private extension ShowView {
 extension ShowView: IShowView {
 
     func setShowContent(model: ShowPresentModel) {
-//        self.priceTopLabel.text = model.presentPickLabelText
-//        self.priceBottomLabel.text = model.presentCarLabelText
+        self.priceTopLabel.text = model.priceTopLabelText
+        self.priceBottomLabel.text = model.priceBottomLabelText
+        self.typeCarLabel.text = model.priceTopLabelText
+        self.sedanButton.setTitle(model.sedanButtonText, for: .normal)
+        self.universalButton.setTitle(model.universalButtonText, for: .normal)
+        self.cabrioletButton.setTitle(model.cabrioletButtonText, for: .normal)
+        self.furgonButton.setTitle(model.furgonButtonText, for: .normal)
+        self.calculatePriceButton.setTitle(model.calculatePriceButtonText, for: .normal)
     }
 }

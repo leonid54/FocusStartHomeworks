@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 protocol IPickView {
     func setPickContent(model: PickPresentModel)
-    var onTouchedHandler: ((String) -> Void)? { get set }
+    var onTouchHandler: ((String) -> Void)? { get set }
 }
 
 final class PickView: UIView {
@@ -11,12 +11,12 @@ final class PickView: UIView {
     private let pickLabel = UILabel()
     private let carLabel = UILabel()
     private let tableView = PickTableView()
-    var onTouchedHandler: ((String) -> Void)?
+    var onTouchHandler: ((String) -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureView()
-        self.onTouchedHandler = { [weak self] model in
+        self.onTouchHandler = { [weak self] model in
             self?.tableView.onTouchedHandler?(model)
         }
     }

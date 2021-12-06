@@ -15,7 +15,7 @@ final class ShowPresenter {
     }
 }
 
-private extension PickPresenter
+private extension ShowPresenter
 {
 //    private func onTouched() {
 //        guard let view = view else {
@@ -28,20 +28,18 @@ private extension PickPresenter
 //    private func setHandlers() {
 //    }
     
-//    func presentPickText() {
-//        let modelData = self.model.getPickText()
-//        let presentData = PickPresentModel(presentPickLabelText: "\(modelData.pickLabelText)", presentCarLabelText: "\(modelData.carLabelText)")
-//        self.view?.setPickContent(model: presentData)
-//    }
+    func presentShowText() {
+        let modelData = self.model.getShowText()
+        let presentData = ShowPresentModel(priceTopLabelText: "\(modelData.priceTopLabel)", priceBottomLabelText: "\(modelData.priceBottomLabel)", typeCarLabelText: "\(modelData.typeCarLabel)", sedanButtonText: "\(modelData.sedanButton)", universalButtonText: "\(modelData.universalButton)", cabrioletButtonText: "\(modelData.cabrioletButton)", furgonButtonText: "\(modelData.furgonButton)", calculatePriceButtonText: "\(modelData.calculatePriceButton)")
+        self.view?.setShowContent(model: presentData)
+    }
 }
 
-extension ShowPresenter: IShowPresenter
-{
+extension ShowPresenter: IShowPresenter {
     func loadView(controller: ShowViewController, view: IShowView) {
         self.controller = controller
         self.view = view
-//        self.presentPickText()
-//        self.setHandlers()
+        self.presentShowText()
     }
 }
 

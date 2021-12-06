@@ -21,14 +21,13 @@ final class PickPresenter {
     }
 }
 
-private extension PickPresenter
-{
+private extension PickPresenter {
 
     private func setHandlers() {
         guard let view = view else {
             return
         }
-        self.view?.onTouchedHandler = { [weak self] model in
+        self.view?.onTouchHandler = { [weak self] model in
             self?.router.next(name: model)
         }
     }
@@ -40,8 +39,7 @@ private extension PickPresenter
     }
 }
 
-extension PickPresenter: IPickPresenter
-{
+extension PickPresenter: IPickPresenter {
     func loadView(controller: PickViewController, view: IPickView) {
         self.controller = controller
         self.view = view
