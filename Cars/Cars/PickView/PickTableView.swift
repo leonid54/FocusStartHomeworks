@@ -1,5 +1,5 @@
 import UIKit
-protocol IPickTableView: UIView {
+protocol IPickTableView {
     var onTouchedHandler: ((String) -> Void)? { get set }
 }
 

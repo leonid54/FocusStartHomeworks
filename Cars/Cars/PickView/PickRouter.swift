@@ -14,11 +14,14 @@ final class PickRouter
     }
 
     func next(name: String) {
+        let parameters = ShowAssembly.Parameters(car: name)
+        self.setTargetController(controller: ShowAssembly.makeModule(parameters: parameters) as! ShowViewController)
         guard let targertController = self.targertController else {
             return
         }
-        let parameters = ShowAssembly.Parameters(car: name)
-        let targetController = ShowAssembly.makeModule(parameters: parameters)
+//        let parameters = ShowAssembly.Parameters(car: name)
+//        self.setTargetController(controller: ShowAssembly.makeModule(parameters: parameters) as! ShowViewController)
+//        let targetController = ShowAssembly.makeModule(parameters: parameters)
         self.controller?.navigationController?.pushViewController(targertController, animated: true)
     }
 }
