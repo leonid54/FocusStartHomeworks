@@ -2,14 +2,8 @@ import UIKit
 import SnapKit
 
 final class HobbieViewController: UIViewController {
-    
-    struct HobbieScreenContent {
-        let sportText = l10n("HOBBIE_VIEW_SPORT")
-        let descSportText = l10n("HOBBIE_VIEW_DESC_SPORT")
-        let artText = l10n("HOBBIE_VIEW_ART")
-        let descArtText = l10n("HOBBIE_VIEW_DESC_ART")
-    }
-    
+
+    let viewModel = HobbieViewModel()
     private let contentView = UIView()
     private let scrollView = UIScrollView()
     private let sportLabel = UILabel()
@@ -20,17 +14,16 @@ final class HobbieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
-    }
-
-    private func setContent(model: HobbieScreenContent) {
-        self.sportLabel.text = model.sportText
-        self.descSportLabel.text = model.descSportText
-        self.artLabel.text = model.artText
-        self.descArtLabel.text = model.descArtText
+        
+        self.viewModel.data.setNotify { [weak self] text in
+            self?.sportLabel.text = text.sportText
+            self?.descSportLabel.text = text.descSportText
+            self?.artLabel.text = text.artText
+            self?.descArtLabel.text = text.descArtText
+        }
     }
 
     private func configure() {
-        self.setContent(model: HobbieScreenContent.init())
         self.addSubviews()
         self.setConstraint()
         self.setConfig()

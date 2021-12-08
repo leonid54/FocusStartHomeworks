@@ -1,13 +1,7 @@
 import UIKit
 
-final class MyInfoViewController: UIViewController {
-    struct MyInfoScreenContent {
-        let nameText = l10n("MY_INFO_NAME")
-        let surnameText = l10n("MY_INFO_SURNAME")
-        let ageText = l10n("MY_INFO_AGE")
-        let educationText = l10n("MY_INFO_EDUCATION")
-        let cityText = l10n("MY_INFO_CITY")
-    }
+final class MyInfoView: UIView {
+    private weak var controller: MyInfoViewController?
     
     private let newView = UIView()
     private let contentView = UIView()
@@ -19,22 +13,20 @@ final class MyInfoViewController: UIViewController {
     private let ageLabel = UILabel()
     private let educationLabel = UILabel()
     private let cityLabel = UILabel()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configure()
+    
+    func loadView(controller: MyInfoViewController) {
+        self.controller = controller
     }
 
-    private func setContent(model: MyInfoScreenContent) {
-        self.nameLabel.text = model.nameText
-        self.surnameLabel.text = model.surnameText
-        self.ageLabel.text = model.ageText
-        self.educationLabel.text = model.educationText
-        self.cityLabel.text = model.cityText
+    func setMyInfoContent(model: PresentationModel) {
+        self.nameLabel.text = model.presentationNameText
+        self.surnameLabel.text = model.presentationSurnameText
+        self.ageLabel.text = model.presentationAgeText
+        self.educationLabel.text = model.presentationEducationText
+        self.cityLabel.text = model.presentationCityText
     }
 
-    private func configure() {
-        self.setContent(model: MyInfoScreenContent.init())
+    func configureMyInfo() {
         self.addSubviews()
         self.setScrollConstraint()
         self.setContentConstraint()
@@ -42,7 +34,7 @@ final class MyInfoViewController: UIViewController {
     }
 
     private func addSubviews() {
-        self.view.addSubview(self.scrollView)
+        self.addSubview(self.scrollView)
         self.scrollView.addSubview(self.contentView)
         self.contentView.addSubview(self.imageView)
         self.contentView.addSubview(self.nameLabel)
@@ -52,9 +44,7 @@ final class MyInfoViewController: UIViewController {
         self.contentView.addSubview(self.cityLabel)
     }
 
-    private func setConfig() {
-        self.view.backgroundColor = .white
-        
+    private func setConfig() {        
         self.myPhoto = UIImage(named: "myPhoto") ?? myPhoto
         self.imageView.image = myPhoto
         self.imageView.contentMode = .scaleAspectFit
@@ -69,10 +59,10 @@ final class MyInfoViewController: UIViewController {
     }
 
     private func setScrollConstraint() {
-        NSLayoutConstraint.activate([self.scrollView.topAnchor.constraint         (equalTo: self.view.topAnchor),
-                                     self.scrollView.bottomAnchor.constraint      (equalTo: self.view.bottomAnchor),
-                                     self.scrollView.leadingAnchor.constraint     (equalTo: self.view.leadingAnchor),
-                                     self.scrollView.trailingAnchor.constraint    (equalTo: self.view.trailingAnchor),
+        NSLayoutConstraint.activate([self.scrollView.topAnchor.constraint         (equalTo: self.topAnchor),
+                                     self.scrollView.bottomAnchor.constraint      (equalTo: self.bottomAnchor),
+                                     self.scrollView.leadingAnchor.constraint     (equalTo: self.leadingAnchor),
+                                     self.scrollView.trailingAnchor.constraint    (equalTo: self.trailingAnchor),
                                      
                         self.contentView.topAnchor.constraint         (equalTo: self.scrollView.topAnchor),
                         self.contentView.bottomAnchor.constraint      (equalTo: self.scrollView.bottomAnchor),
