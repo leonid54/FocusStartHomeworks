@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "BMW_SED.jpeg",
+      "filename" : "HONDA_SED.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "HONDA_SED-1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },

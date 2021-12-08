@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "HONDA_SED.jpeg",
+      "filename" : "AUDI_SED.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "AUDI_SED-1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },

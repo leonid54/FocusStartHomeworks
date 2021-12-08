@@ -45,7 +45,6 @@ extension PickPresenter: IPickPresenter {
         self.view = view
         self.presentPickText()
         self.setHandlers()
-//        self.router.next(name: "")
     }
 }
 

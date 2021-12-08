@@ -16,8 +16,8 @@ final class PickView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureView()
-        self.onTouchHandler = { [weak self] model in
-            self?.tableView.onTouchedHandler?(model)
+        self.tableView.onTouchedHandler = { [weak self] model in
+            self?.onTouchHandler?(model)
         }
     }
     

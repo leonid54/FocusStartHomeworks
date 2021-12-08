@@ -3,6 +3,12 @@ import UIKit
 import SnapKit
 protocol IShowView {
     func setShowContent(model: ShowPresentModel)
+    func update(price: String)
+    func setDefaultCar(defaultCar: String)
+    func setCurrentCar(currentCar: String)
+    func showActivityIndicator()
+    var onTouchedCarButtonHandler: ((String) -> Void)? { get set }
+    var onTouchedGetPriceHandler: ((String) -> Void)? { get set }
 }
 
 final class ShowView: UIView {
@@ -18,10 +24,21 @@ final class ShowView: UIView {
     private let cabrioletButton = UIButton()
     private let furgonButton = UIButton()
     private let calculatePriceButton = UIButton()
-//    private let sLineView = UIView()
-//    private let uLineView = UIView()
-//    private let cLineView = UIView()
-//    private let fLineView = UIView()
+    var spinner = UIActivityIndicatorView(style: .whiteLarge)
+    var loadingView: UIView = UIView()
+    private var currentButton: String?
+    var onTouchedCarButtonHandler: ((String) -> Void)?
+    var onTouchedGetPriceHandler: ((String) -> Void)?
+    
+    //    private let sLineView = UIView()
+    //    private let uLineView = UIView()
+    //    private let cLineView = UIView()
+    //    private let fLineView = UIView()
+    
+    func hideActivityIndicator() {
+        self.spinner.stopAnimating()
+        self.loadingView.removeFromSuperview()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,9 +57,17 @@ final class ShowView: UIView {
     }
     
     private func setConfig() {
+        self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
+        self.loadingView.backgroundColor = UIColor.black
+        self.loadingView.alpha = 0.7
+        self.loadingView.clipsToBounds = true
+        self.loadingView.layer.cornerRadius = 10
+        
+        self.spinner = UIActivityIndicatorView(style: .whiteLarge)
+        self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+        self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
         self.backgroundColor = .white
         
-        self.imageView.image = UIImage(named: "BMW_SED")
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         
@@ -79,9 +104,7 @@ final class ShowView: UIView {
         self.calculatePriceButton.backgroundColor = .green
         self.calculatePriceButton.layer.cornerRadius = 10
         self.calculatePriceButton.setTitleColor(UIColor.white, for: .normal)
-        
-//        self.sLineView.backgroundColor = .black
-        
+        self.calculatePriceButton.addTarget(self, action: #selector(self.getPriceTouchedDown), for: .touchDown)
     }
     
     private func setConstraint() {
@@ -162,6 +185,12 @@ final class ShowView: UIView {
             make.width.equalTo(343)
         }
         
+        self.loadingView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(5)
+            make.left.equalToSuperview().offset(5)
+            make.right.equalToSuperview().offset(-5)
+        }
+        
 //        self.sLineView.snp.makeConstraints { (make) in
 //            make.top.equalTo(self.sedanButton.snp.bottom).offset(15)
 //            make.left.right.equalToSuperview().offset(10)
@@ -186,31 +215,52 @@ private extension ShowView {
         self.contentView.addSubview(self.cabrioletButton)
         self.contentView.addSubview(self.furgonButton)
         self.contentView.addSubview(self.calculatePriceButton)
-//        self.contentView.addSubview(self.sLineView)
-//        self.contentView.addSubview(self.uLineView)
-//        self.contentView.addSubview(self.cLineView)
-//        self.contentView.addSubview(self.fLineView)
+        self.contentView.addSubview(self.loadingView)
+        self.loadingView.addSubview(self.spinner)
     }
     
     @objc private func sedanTouchedDown() {
-        self.imageView.image = UIImage(named: "AUDI_SED")
+        self.currentButton = "sedan"
+        guard let currentType = self.currentButton else {
+            return
+        }
+        self.onTouchedCarButtonHandler?(currentType)
     }
     
     @objc private func univTouchedDown() {
-        self.imageView.image = UIImage(named: "AUDI_UNIV")
+        self.currentButton = "univ"
+        guard let currentType = self.currentButton else {
+            return
+        }
+        self.onTouchedCarButtonHandler?(currentType)
     }
     
     @objc private func cabrTouchedDown() {
-        self.imageView.image = UIImage(named: "AUDI_CABR")
+        self.currentButton = "cabr"
+        guard let currentType = self.currentButton else {
+            return
+        }
+        self.onTouchedCarButtonHandler?(currentType)
     }
     
     @objc private func furgonTouchedDown() {
-        self.imageView.image = UIImage(named: "AUDI_FURG")
+        self.currentButton = "furgon"
+        guard let currentType = self.currentButton else {
+            return
+        }
+        self.onTouchedCarButtonHandler?(currentType)
+    }
+    
+    @objc private func getPriceTouchedDown() {
+        guard let currentButton = self.currentButton else {
+            return
+        }
+        self.onTouchedGetPriceHandler?(currentButton)
     }
 }
 
 extension ShowView: IShowView {
-
+    
     func setShowContent(model: ShowPresentModel) {
         self.priceTopLabel.text = model.priceTopLabelText
         self.priceBottomLabel.text = model.priceBottomLabelText
@@ -220,5 +270,21 @@ extension ShowView: IShowView {
         self.cabrioletButton.setTitle(model.cabrioletButtonText, for: .normal)
         self.furgonButton.setTitle(model.furgonButtonText, for: .normal)
         self.calculatePriceButton.setTitle(model.calculatePriceButtonText, for: .normal)
+    }
+    
+    func update(price: String) {
+        self.priceBottomLabel.text = price
+    }
+    
+    func showActivityIndicator() {
+        self.spinner.startAnimating()
+    }
+    
+    func setDefaultCar(defaultCar: String) {
+        self.imageView.image = UIImage(named: defaultCar)
+    }
+    
+    func setCurrentCar(currentCar: String) {
+        self.imageView.image = UIImage(named: currentCar)
     }
 }

@@ -4,7 +4,7 @@ protocol IPickTableView {
 }
 
 final class PickTableView: UIView, IPickTableView {
-    private var PickTableView: UITableView = UITableView()
+    private var pickTableView: UITableView = UITableView()
     private var contentModel = Car.cars
     var onTouchedHandler: ((String) -> Void)?
     
@@ -25,20 +25,20 @@ final class PickTableView: UIView, IPickTableView {
     }
 
     private func addSubviews() {
-        self.addSubview(self.PickTableView)
+        self.addSubview(self.pickTableView)
     }
 
     private func addDelegate() {
-        self.PickTableView.dataSource = self
-        self.PickTableView.delegate = self
+        self.pickTableView.dataSource = self
+        self.pickTableView.delegate = self
     }
 
     private func setConfig() {
-        self.PickTableView.showsVerticalScrollIndicator = false
+        self.pickTableView.showsVerticalScrollIndicator = false
     }
 
     private func setConstraint() {
-        self.PickTableView.snp.makeConstraints { (make) in
+        self.pickTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
     }
