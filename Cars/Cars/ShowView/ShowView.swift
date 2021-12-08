@@ -101,8 +101,8 @@ final class ShowView: UIView {
         self.furgonButton.setTitleColor(UIColor.black, for: .normal)
         self.furgonButton.addTarget(self, action: #selector(self.furgonTouchedDown), for: .touchDown)
         
-        self.calculatePriceButton.backgroundColor = .green
-        self.calculatePriceButton.layer.cornerRadius = 10
+        self.calculatePriceButton.backgroundColor = UIColor(red: 0.366, green: 0.692, blue: 0.457, alpha: 1)
+        self.calculatePriceButton.layer.cornerRadius = 25
         self.calculatePriceButton.setTitleColor(UIColor.white, for: .normal)
         self.calculatePriceButton.addTarget(self, action: #selector(self.getPriceTouchedDown), for: .touchDown)
     }

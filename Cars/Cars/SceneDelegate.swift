@@ -14,6 +14,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         self.navVc = UINavigationController(rootViewController: vc)
+        self.navVc?.navigationBar.tintColor = UIColor(red: 0.366, green: 0.692, blue: 0.457, alpha: 1)
         self.window?.rootViewController = self.navVc
         self.window?.makeKeyAndVisible()
     }

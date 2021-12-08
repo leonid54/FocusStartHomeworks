@@ -34,10 +34,10 @@ final class PickView: UIView {
     private func setConfig() {
         self.backgroundColor = .white
         self.pickLabel.textColor = .black
-        self.pickLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        self.pickLabel.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         
         self.carLabel.textColor = .black
-        self.carLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        self.carLabel.font = UIFont.systemFont(ofSize: 30, weight: .medium)
     }
     
     private func setConstraint() {
@@ -67,7 +67,7 @@ final class PickView: UIView {
         self.tableView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.contentView)
             make.top.equalTo(self.carLabel.snp.bottom).offset(22)
-            make.height.equalToSuperview()
+            make.height.equalTo(210)
         }
     }
 }
