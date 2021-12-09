@@ -73,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D947C6F27620E8F00CE740C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF7E43275B3CA1009730E8 /* CarModel.swift */,
+				1D947C6B27620DDE00CE740C /* TypeOfCar.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D947C7027620EF600CE740C /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF7E29275B3470009730E8 /* AppDelegate.swift */,
+				1DCF7E2B275B3470009730E8 /* SceneDelegate.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		1DCF7E1D275B3470009730E8 = {
 			isa = PBXGroup;
 			children = (
@@ -92,13 +110,11 @@
 		1DCF7E28275B3470009730E8 /* Cars */ = {
 			isa = PBXGroup;
 			children = (
-				1DCF7E70275B512F009730E8 /* Resources */,
-				1DCF7E40275B35FD009730E8 /* PickView */,
+				1D947C7027620EF600CE740C /* Flow */,
+				1D947C6F27620E8F00CE740C /* Models */,
 				1DCF7E42275B364A009730E8 /* ShowView */,
-				1DCF7E29275B3470009730E8 /* AppDelegate.swift */,
-				1DCF7E2B275B3470009730E8 /* SceneDelegate.swift */,
-				1DCF7E32275B3474009730E8 /* Assets.xcassets */,
-				1DCF7E34275B3474009730E8 /* LaunchScreen.storyboard */,
+				1DCF7E40275B35FD009730E8 /* PickView */,
+				1DCF7E70275B512F009730E8 /* Resources */,
 				1DCF7E37275B3474009730E8 /* Info.plist */,
 			);
 			path = Cars;
@@ -107,7 +123,6 @@
 		1DCF7E40275B35FD009730E8 /* PickView */ = {
 			isa = PBXGroup;
 			children = (
-				1DCF7E43275B3CA1009730E8 /* CarModel.swift */,
 				1DCF7E75275B5492009730E8 /* PickModel.swift */,
 				1DCF7E7A275B62C0009730E8 /* PickPresentModel.swift */,
 				1DCF7E4B275B3FAF009730E8 /* PickPresenter.swift */,
@@ -124,7 +139,6 @@
 		1DCF7E42275B364A009730E8 /* ShowView */ = {
 			isa = PBXGroup;
 			children = (
-				1D947C6B27620DDE00CE740C /* TypeOfCar.swift */,
 				1DCF7E5A275B40EF009730E8 /* ShowModel.swift */,
 				1DCF7E8C275CA05E009730E8 /* ShowPresentModel.swift */,
 				1DCF7E5E275B40FD009730E8 /* ShowView.swift */,
@@ -139,7 +153,9 @@
 		1DCF7E70275B512F009730E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1DCF7E34275B3474009730E8 /* LaunchScreen.storyboard */,
 				1DCF7E71275B5158009730E8 /* Metrics.swift */,
+				1DCF7E32275B3474009730E8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
