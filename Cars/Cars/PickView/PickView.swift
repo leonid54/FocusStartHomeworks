@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+
 protocol IPickView {
     func setPickContent(model: PickPresentModel)
     var onTouchHandler: ((String) -> Void)? { get set }
@@ -34,12 +35,12 @@ private extension PickView {
     }
     
     private func setConfig() {
-        self.backgroundColor = .white
-        self.pickLabel.textColor = .black
-        self.pickLabel.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
+        self.backgroundColor = Metrics.defaultBackColorView
+        self.pickLabel.textColor = Metrics.defaultBlackColor
+        self.pickLabel.font = Metrics.pickViewPickLabelFont
         
-        self.carLabel.textColor = .black
-        self.carLabel.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        self.carLabel.textColor = Metrics.defaultBlackColor
+        self.carLabel.font = Metrics.pickViewCarLabelFont
     }
     
     private func setConstraint() {
@@ -48,28 +49,28 @@ private extension PickView {
         }
         
         self.contentView.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(self.scrollView)
-            make.left.right.equalTo(self.scrollView)
-            make.bottom.equalTo(self.scrollView)
-            make.width.equalTo(self.scrollView)
-            make.height.equalTo(self.scrollView)
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
         }
         
         self.pickLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.contentView).offset(60)
-            make.centerX.equalTo(self.contentView)
+            make.top.equalToSuperview().offset(Metrics.pickViewPickLabelTopConstraint)
+            make.centerX.equalToSuperview()
         }
         
         self.carLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.pickLabel.snp.bottom).offset(43)
-            make.left.equalTo(self.contentView).offset(18)
-            make.right.equalTo(self.contentView).offset(-14)
+            make.top.equalTo(self.pickLabel.snp.bottom).offset(Metrics.pickViewCarLabelTopConstraint)
+            make.left.equalToSuperview().offset(Metrics.pickViewCarLabelLeftConstraint)
+            make.right.equalToSuperview().offset(Metrics.pickViewCarLabelRightConstraint)
         }
         
         self.tableView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.contentView)
-            make.top.equalTo(self.carLabel.snp.bottom).offset(22)
-            make.height.equalTo(210)
+            make.left.right.equalToSuperview()
+            make.top.equalTo(self.carLabel.snp.bottom).offset(Metrics.pickViewTableViewTopConstraint)
+            make.height.equalTo(Metrics.pickViewTableViewHeightConstraint)
         }
     }
     

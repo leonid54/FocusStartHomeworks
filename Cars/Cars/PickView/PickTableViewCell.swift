@@ -25,29 +25,29 @@ private extension PickTableViewCell {
     }
 
     private func setConfig() {
-        self.nameLabel.textColor = .black
+        self.nameLabel.textColor = Metrics.defaultBlackColor
         self.selectLabel.text = "Select"
-        self.greenCircle.backgroundColor = UIColor(red: 0.366, green: 0.692, blue: 0.457, alpha: 1)
-        self.greenCircle.layer.cornerRadius = 8
+        self.greenCircle.backgroundColor = Metrics.pickViewCellGreenCircleColor
+        self.greenCircle.layer.cornerRadius = Metrics.pickViewCellGreenCircleRadius
     }
 
     private func setConstraint() {
         self.nameLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(48)
-            make.right.equalToSuperview().offset(-16)
+            make.top.equalToSuperview().offset(Metrics.pickViewCellNameLabelTop)
+            make.left.equalToSuperview().offset(Metrics.pickViewCellNameLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.pickViewCellNameLabelRight)
         }
         
         self.selectLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-16)
+            make.top.equalToSuperview().offset(Metrics.pickViewCellSelectLabelTop)
+            make.right.equalToSuperview().offset(Metrics.pickViewCellSelectLabelRight)
         }
 
         self.greenCircle.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(10)
-            make.height.equalTo(16)
-            make.width.equalTo(16)
+            make.left.equalToSuperview().offset(Metrics.pickViewCellGreenLabelLeft)
+            make.top.equalToSuperview().offset(Metrics.pickViewCellGreenLabelTop)
+            make.height.equalTo(Metrics.pickViewCellGreenLabelHeight)
+            make.width.equalTo(Metrics.pickViewCellGreenLabelWidth)
         }
     }
 }
