@@ -9,12 +9,15 @@ final class PickTableViewCell: UITableViewCell {
     private let selectLabel = UILabel()
     private let greenCircle = UIImageView()
     
-    internal func configure() {
+    func configure() {
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
     }
+}
 
+private extension PickTableViewCell {
+    
     private func addSubviews() {
         self.addSubview(self.nameLabel)
         self.addSubview(self.selectLabel)

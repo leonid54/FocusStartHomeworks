@@ -7,6 +7,7 @@ protocol IShowView {
     func setDefaultCar(defaultCar: String)
     func setCurrentCar(currentCar: String)
     func showActivityIndicator()
+    func hideActivityIndicator()
     var onTouchedCarButtonHandler: ((String) -> Void)? { get set }
     var onTouchedGetPriceHandler: ((String) -> Void)? { get set }
 }
@@ -24,50 +25,38 @@ final class ShowView: UIView {
     private let cabrioletButton = UIButton()
     private let furgonButton = UIButton()
     private let calculatePriceButton = UIButton()
-    var spinner = UIActivityIndicatorView(style: .whiteLarge)
-    var loadingView: UIView = UIView()
+    private let sLineView = UIView()
+    private let uLineView = UIView()
+    private let cLineView = UIView()
+    private let fLineView = UIView()
+    private let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     private var currentButton: String?
+
     var onTouchedCarButtonHandler: ((String) -> Void)?
     var onTouchedGetPriceHandler: ((String) -> Void)?
-    
-    //    private let sLineView = UIView()
-    //    private let uLineView = UIView()
-    //    private let cLineView = UIView()
-    //    private let fLineView = UIView()
-    
-    func hideActivityIndicator() {
-        self.spinner.stopAnimating()
-        self.loadingView.removeFromSuperview()
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureView()
     }
     
-    private func configureView() {
-        self.addSubviews()
-        self.setConfig()
-
-        self.setConstraint()
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+   
+private extension ShowView {
+    
+    private func configureView() {
+        self.addSubviews()
+        self.setConfig()
+        self.setConstraint()
+    }
     
     private func setConfig() {
-        self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
-        self.loadingView.backgroundColor = UIColor.black
-        self.loadingView.alpha = 0.7
-        self.loadingView.clipsToBounds = true
-        self.loadingView.layer.cornerRadius = 10
-        
-        self.spinner = UIActivityIndicatorView(style: .whiteLarge)
-        self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
-        self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
         self.backgroundColor = .white
-        
+        self.activityView.center = self.center
+
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         
@@ -105,6 +94,11 @@ final class ShowView: UIView {
         self.calculatePriceButton.layer.cornerRadius = 25
         self.calculatePriceButton.setTitleColor(UIColor.white, for: .normal)
         self.calculatePriceButton.addTarget(self, action: #selector(self.getPriceTouchedDown), for: .touchDown)
+        
+        self.sLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
+        self.uLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
+        self.cLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
+        self.fLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
     }
     
     private func setConstraint() {
@@ -121,7 +115,7 @@ final class ShowView: UIView {
         }
         
         self.imageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.contentView).offset(48)
+            make.top.equalTo(self.contentView).offset(40)
             make.right.equalTo(self.contentView).offset(-18)
             make.left.equalTo(self.contentView).offset(17)
             make.height.equalTo(self.imageView.snp.width).dividedBy(2)
@@ -150,7 +144,13 @@ final class ShowView: UIView {
             make.left.equalTo(self.contentView).offset(16)
             make.right.equalTo(self.contentView).offset(-16)
             make.height.equalTo(19)
-            make.width.equalTo(50)
+        }
+        
+        self.sLineView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.sedanButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.height.equalTo(1)
         }
         
         self.universalButton.snp.makeConstraints { (make) in
@@ -158,7 +158,13 @@ final class ShowView: UIView {
             make.left.equalTo(self.contentView).offset(16)
             make.right.equalTo(self.contentView).offset(-16)
             make.height.equalTo(19)
-            make.width.equalTo(50)
+        }
+        
+        self.uLineView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.universalButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.height.equalTo(1)
         }
         
         self.cabrioletButton.snp.makeConstraints { (make) in
@@ -166,7 +172,13 @@ final class ShowView: UIView {
             make.left.equalTo(self.contentView).offset(16)
             make.right.equalTo(self.contentView).offset(-16)
             make.height.equalTo(19)
-            make.width.equalTo(50)
+        }
+        
+        self.cLineView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.cabrioletButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.height.equalTo(1)
         }
         
         self.furgonButton.snp.makeConstraints { (make) in
@@ -174,7 +186,13 @@ final class ShowView: UIView {
             make.left.equalTo(self.contentView).offset(16)
             make.right.equalTo(self.contentView).offset(-16)
             make.height.equalTo(19)
-            make.width.equalTo(50)
+        }
+        
+        self.fLineView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.furgonButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.height.equalTo(1)
         }
         
         self.calculatePriceButton.snp.makeConstraints { (make) in
@@ -184,26 +202,11 @@ final class ShowView: UIView {
             make.height.equalTo(51)
             make.width.equalTo(343)
         }
-        
-        self.loadingView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(5)
-            make.left.equalToSuperview().offset(5)
-            make.right.equalToSuperview().offset(-5)
-        }
-        
-//        self.sLineView.snp.makeConstraints { (make) in
-//            make.top.equalTo(self.sedanButton.snp.bottom).offset(15)
-//            make.left.right.equalToSuperview().offset(10)
-//            make.bottom.equalTo(self.universalButton.snp.top).offset(-17)
-//        }
     }
-    
-}
-   
-private extension ShowView {
     
     private func addSubviews() {
         self.addSubview(self.scrollView)
+        self.addSubview(self.activityView)
         self.scrollView.addSubview(self.contentView)
         
         self.contentView.addSubview(self.imageView)
@@ -215,8 +218,10 @@ private extension ShowView {
         self.contentView.addSubview(self.cabrioletButton)
         self.contentView.addSubview(self.furgonButton)
         self.contentView.addSubview(self.calculatePriceButton)
-        self.contentView.addSubview(self.loadingView)
-        self.loadingView.addSubview(self.spinner)
+        self.contentView.addSubview(self.sLineView)
+        self.contentView.addSubview(self.uLineView)
+        self.contentView.addSubview(self.cLineView)
+        self.contentView.addSubview(self.fLineView)
     }
     
     @objc private func sedanTouchedDown() {
@@ -277,7 +282,11 @@ extension ShowView: IShowView {
     }
     
     func showActivityIndicator() {
-        self.spinner.startAnimating()
+        activityView.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        self.activityView.stopAnimating()
     }
     
     func setDefaultCar(defaultCar: String) {

@@ -16,14 +16,17 @@ final class PickTableView: UIView, IPickTableView {
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+private extension PickTableView {
+    
     private func configure() {
         self.setConfig()
         self.addDelegate()
         self.addSubviews()
         self.setConstraint()
     }
-
+    
     private func addSubviews() {
         self.addSubview(self.pickTableView)
     }

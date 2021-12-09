@@ -1,7 +1,6 @@
 import UIKit
 
-final class PickAssembly
-{
+final class PickAssembly {
     static func makeModule() -> UIViewController {
         let model = PickModel()
         let router = PickRouter()

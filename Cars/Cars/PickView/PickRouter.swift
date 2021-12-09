@@ -1,7 +1,6 @@
 import UIKit
 
-final class PickRouter
-{
+final class PickRouter {
     private var controller: PickViewController?
     private var targertController: ShowViewController?
 
@@ -19,9 +18,6 @@ final class PickRouter
         guard let targertController = self.targertController else {
             return
         }
-//        let parameters = ShowAssembly.Parameters(car: name)
-//        self.setTargetController(controller: ShowAssembly.makeModule(parameters: parameters) as! ShowViewController)
-//        let targetController = ShowAssembly.makeModule(parameters: parameters)
         self.controller?.navigationController?.pushViewController(targertController, animated: true)
     }
 }

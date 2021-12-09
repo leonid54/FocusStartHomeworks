@@ -20,15 +20,17 @@ final class PickView: UIView {
             self?.onTouchHandler?(model)
         }
     }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+   
+private extension PickView {
     
     private func configureView() {
         self.addSubviews()
         self.setConstraint()
         self.setConfig()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func setConfig() {
@@ -70,9 +72,6 @@ final class PickView: UIView {
             make.height.equalTo(210)
         }
     }
-}
-   
-private extension PickView {
     
     private func addSubviews() {
         self.addSubview(self.scrollView)

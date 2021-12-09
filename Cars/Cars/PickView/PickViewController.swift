@@ -1,9 +1,5 @@
 import UIKit
 
-protocol IPickViewController: AnyObject {
-    
-}
-
 final class PickViewController: UIViewController {
     private var pickView: IPickView
     private var pickPresenter: IPickPresenter

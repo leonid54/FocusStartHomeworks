@@ -1,9 +1,5 @@
 import UIKit
 
-protocol IShowViewController: AnyObject {
-    
-}
-
 final class ShowViewController: UIViewController {
     private var showView: IShowView
     private var showPresenter: IShowPresenter

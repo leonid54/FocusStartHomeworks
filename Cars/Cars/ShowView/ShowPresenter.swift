@@ -75,11 +75,14 @@ private extension ShowPresenter {
             return
         }
         self.view?.showActivityIndicator()
-        let car = model.priceOfCars
-        for (key, value) in car {
-            if key == data {
-                self.view?.update(price: value)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let car = self.model.priceOfCars
+            for (key, value) in car {
+                if key == data {
+                    self.view?.update(price: value)
+                }
             }
+            self.view?.hideActivityIndicator()
         }
     }
 
