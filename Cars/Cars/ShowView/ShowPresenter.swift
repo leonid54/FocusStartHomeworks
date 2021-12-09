@@ -31,41 +31,10 @@ private extension ShowPresenter {
         guard let someCar = self.car else {
             return
         }
-        
-        if someCar == "BMW" {
-            let typeOfCars = model.bmw
-            for (key, value) in typeOfCars {
-                if key == type {
-                    self.view?.setCurrentCar(currentCar: value)
-                }
-            }
-        } else if someCar == "HONDA" {
-            let typeOfCars = model.honda
-            for (key, value) in typeOfCars {
-                if key == type {
-                    self.view?.setCurrentCar(currentCar: value)
-                }
-            }
-        } else if someCar == "MERCEDES" {
-            let typeOfCars = model.mercedes
-            for (key, value) in typeOfCars {
-                if key == type {
-                    self.view?.setCurrentCar(currentCar: value)
-                }
-            }
-        } else if someCar == "TOYOTA" {
-            let typeOfCars = model.toyota
-            for (key, value) in typeOfCars {
-                if key == type {
-                    self.view?.setCurrentCar(currentCar: value)
-                }
-            }
-        } else if someCar == "AUDI" {
-            let typeOfCars = model.audi
-            for (key, value) in typeOfCars {
-                if key == type {
-                    self.view?.setCurrentCar(currentCar: value)
-                }
+        let contentModel = TypeCars.types
+        for value in contentModel {
+            if someCar == value.name && value.type == type {
+                self.view?.setCurrentCar(currentCar: value.image)
             }
         }
     }
