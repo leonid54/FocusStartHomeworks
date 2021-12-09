@@ -54,51 +54,51 @@ private extension ShowView {
     }
     
     private func setConfig() {
-        self.backgroundColor = .white
+        self.backgroundColor = Metrics.defaultBackColorView
         self.activityView.center = self.center
 
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         
-        self.priceTopLabel.textColor = .black
-        self.priceTopLabel.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        self.priceTopLabel.textColor = Metrics.defaultBlackColor
+        self.priceTopLabel.font = Metrics.showViewPriceTopLabelFont
 
-        self.priceBottomLabel.textColor = .black
-        self.priceBottomLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        self.priceBottomLabel.textColor = Metrics.defaultBlackColor
+        self.priceBottomLabel.font = Metrics.showViewPriceBottomLabelFont
         
-        self.typeCarLabel.textColor = .black
-        self.typeCarLabel.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        self.typeCarLabel.textColor = Metrics.defaultBlackColor
+        self.typeCarLabel.font = Metrics.showViewCarLabelFont
         
-        self.sedanButton.backgroundColor = .white
+        self.sedanButton.backgroundColor = Metrics.defaultBackColorView
         self.sedanButton.contentHorizontalAlignment = .left
         self.sedanButton.setTitleColor(UIColor.black, for: .normal)
         self.sedanButton.addTarget(self, action: #selector(self.sedanTouchedDown), for: .touchDown)
         
-        self.universalButton.backgroundColor = .white
+        self.universalButton.backgroundColor = Metrics.defaultBackColorView
         self.universalButton.contentHorizontalAlignment = .left
-        self.universalButton.setTitleColor(UIColor.black, for: .normal)
+        self.universalButton.setTitleColor(Metrics.defaultBlackColor, for: .normal)
         self.universalButton.addTarget(self, action: #selector(self.univTouchedDown), for: .touchDown)
 
         
-        self.cabrioletButton.backgroundColor = .white
+        self.cabrioletButton.backgroundColor = Metrics.defaultBackColorView
         self.cabrioletButton.contentHorizontalAlignment = .left
-        self.cabrioletButton.setTitleColor(UIColor.black, for: .normal)
+        self.cabrioletButton.setTitleColor(Metrics.defaultBlackColor, for: .normal)
         self.cabrioletButton.addTarget(self, action: #selector(self.cabrTouchedDown), for: .touchDown)
         
-        self.furgonButton.backgroundColor = .white
+        self.furgonButton.backgroundColor = Metrics.defaultBackColorView
         self.furgonButton.contentHorizontalAlignment = .left
-        self.furgonButton.setTitleColor(UIColor.black, for: .normal)
+        self.furgonButton.setTitleColor(Metrics.defaultBlackColor, for: .normal)
         self.furgonButton.addTarget(self, action: #selector(self.furgonTouchedDown), for: .touchDown)
         
-        self.calculatePriceButton.backgroundColor = UIColor(red: 0.366, green: 0.692, blue: 0.457, alpha: 1)
-        self.calculatePriceButton.layer.cornerRadius = 25
-        self.calculatePriceButton.setTitleColor(UIColor.white, for: .normal)
+        self.calculatePriceButton.backgroundColor = Metrics.showViewCalPriceButtonColor
+        self.calculatePriceButton.layer.cornerRadius = Metrics.showViewCalPriceButtonRadius
+        self.calculatePriceButton.setTitleColor(Metrics.defaultBackColorView, for: .normal)
         self.calculatePriceButton.addTarget(self, action: #selector(self.getPriceTouchedDown), for: .touchDown)
         
-        self.sLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
-        self.uLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
-        self.cLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
-        self.fLineView.backgroundColor = UIColor(red: 0.908, green: 0.908, blue: 0.908, alpha: 1)
+        self.sLineView.backgroundColor = Metrics.showViewLineViewColor
+        self.uLineView.backgroundColor = Metrics.showViewLineViewColor
+        self.cLineView.backgroundColor = Metrics.showViewLineViewColor
+        self.fLineView.backgroundColor = Metrics.showViewLineViewColor
     }
     
     private func setConstraint() {
@@ -107,100 +107,100 @@ private extension ShowView {
         }
         
         self.contentView.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(self.scrollView)
-            make.left.right.equalTo(self.scrollView)
-            make.bottom.equalTo(self.scrollView)
-            make.width.equalTo(self.scrollView)
-            make.height.equalTo(self.scrollView).offset(50)
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().offset(Metrics.showViewContentViewHeight)
         }
         
         self.imageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.contentView).offset(40)
-            make.right.equalTo(self.contentView).offset(-18)
-            make.left.equalTo(self.contentView).offset(17)
-            make.height.equalTo(self.imageView.snp.width).dividedBy(2)
+            make.top.equalToSuperview().offset(Metrics.showViewLImageViewTop)
+            make.right.equalToSuperview().offset(Metrics.showViewImageViewRight)
+            make.left.equalToSuperview().offset(Metrics.showViewImageViewLeft)
+            make.height.equalTo(self.imageView.snp.width).dividedBy(Metrics.showViewImageViewRDivided)
         }
         
         self.priceTopLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.imageView.snp.bottom).offset(23)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
+            make.top.equalTo(self.imageView.snp.bottom).offset(Metrics.showViewPriceTopLabelTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
         }
         
         self.priceBottomLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.priceTopLabel.snp.bottom).offset(8)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
+            make.top.equalTo(self.priceTopLabel.snp.bottom).offset(Metrics.showViewPriceBottomLabelTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
         }
         
         self.typeCarLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.priceBottomLabel.snp.bottom).offset(23)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
+            make.top.equalTo(self.priceBottomLabel.snp.bottom).offset(Metrics.showViewTypeCarTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
         }
         
         self.sedanButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.typeCarLabel.snp.bottom).offset(18)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
-            make.height.equalTo(19)
+            make.top.equalTo(self.typeCarLabel.snp.bottom).offset(Metrics.showViewSedanButtonTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
+            make.height.equalTo(Metrics.showViewSedanButtonHeight)
         }
         
         self.sLineView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.sedanButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
-            make.height.equalTo(1)
+            make.top.equalTo(self.sedanButton.snp.bottom).offset(Metrics.showViewSLineViewTop)
+            make.left.equalToSuperview().offset(Metrics.showViewSLineViewLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewSLineViewRight)
+            make.height.equalTo(Metrics.showViewLineViewHeight)
         }
         
         self.universalButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.sedanButton.snp.bottom).offset(32)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
-            make.height.equalTo(19)
+            make.top.equalTo(self.sedanButton.snp.bottom).offset(Metrics.showViewUnivButtonTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
+            make.height.equalTo(Metrics.showViewUnivButtonHeight)
         }
         
         self.uLineView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.universalButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
-            make.height.equalTo(1)
+            make.top.equalTo(self.universalButton.snp.bottom).offset(Metrics.showViewSLineViewTop)
+            make.left.equalToSuperview().offset(Metrics.showViewSLineViewLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewSLineViewRight)
+            make.height.equalTo(Metrics.showViewLineViewHeight)
         }
         
         self.cabrioletButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.universalButton.snp.bottom).offset(32)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
-            make.height.equalTo(19)
+            make.top.equalTo(self.universalButton.snp.bottom).offset(Metrics.showViewUnivButtonTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
+            make.height.equalTo(Metrics.showViewUnivButtonHeight)
         }
         
         self.cLineView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.cabrioletButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
-            make.height.equalTo(1)
+            make.top.equalTo(self.cabrioletButton.snp.bottom).offset(Metrics.showViewSLineViewTop)
+            make.left.equalToSuperview().offset(Metrics.showViewSLineViewLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewSLineViewRight)
+            make.height.equalTo(Metrics.showViewLineViewHeight)
         }
         
         self.furgonButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.cabrioletButton.snp.bottom).offset(32)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
-            make.height.equalTo(19)
+            make.top.equalTo(self.cabrioletButton.snp.bottom).offset(Metrics.showViewUnivButtonTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
+            make.height.equalTo(Metrics.showViewUnivButtonHeight)
         }
         
         self.fLineView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.furgonButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
-            make.height.equalTo(1)
+            make.top.equalTo(self.furgonButton.snp.bottom).offset(Metrics.showViewSLineViewTop)
+            make.left.equalToSuperview().offset(Metrics.showViewSLineViewLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewSLineViewRight)
+            make.height.equalTo(Metrics.showViewLineViewHeight)
         }
         
         self.calculatePriceButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.furgonButton.snp.bottom).offset(140)
-            make.left.equalTo(self.contentView).offset(16)
-            make.right.equalTo(self.contentView).offset(-16)
-            make.height.equalTo(51)
-            make.width.equalTo(343)
+            make.top.equalTo(self.furgonButton.snp.bottom).offset(Metrics.showViewCalcButtonTop)
+            make.left.equalToSuperview().offset(Metrics.showViewPriceTopLabelLeft)
+            make.right.equalToSuperview().offset(Metrics.showViewPriceTopLabelRight)
+            make.height.equalTo(Metrics.showViewCalcButtonHeight)
+            make.width.equalTo(Metrics.showViewCalcButtonWidth)
         }
     }
     
