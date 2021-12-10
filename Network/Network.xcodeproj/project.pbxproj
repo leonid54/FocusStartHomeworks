@@ -3,22 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D02141027638FDD009E6413 /* NetworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02140A27638FDC009E6413 /* NetworkTableViewCell.swift */; };
+		1D02141127638FDD009E6413 /* NetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02140B27638FDC009E6413 /* NetworkView.swift */; };
+		1D02141227638FDD009E6413 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02140C27638FDC009E6413 /* Network.swift */; };
+		1D02141327638FDD009E6413 /* NetworkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02140D27638FDC009E6413 /* NetworkPresenter.swift */; };
+		1D02141427638FDD009E6413 /* NetworkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02140E27638FDC009E6413 /* NetworkTableView.swift */; };
+		1D02141527638FDD009E6413 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02140F27638FDC009E6413 /* NetworkModel.swift */; };
+		1D02141A27639033009E6413 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1D02141927639033009E6413 /* SnapKit */; };
 		1D2DC2EA276386B000AC16F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DC2E9276386B000AC16F1 /* AppDelegate.swift */; };
 		1D2DC2EC276386B000AC16F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DC2EB276386B000AC16F1 /* SceneDelegate.swift */; };
-		1D2DC2EE276386B000AC16F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DC2ED276386B000AC16F1 /* ViewController.swift */; };
 		1D2DC2F3276386B300AC16F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2DC2F2276386B300AC16F1 /* Assets.xcassets */; };
 		1D2DC2F6276386B300AC16F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2DC2F4276386B300AC16F1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D02140A27638FDC009E6413 /* NetworkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTableViewCell.swift; sourceTree = "<group>"; };
+		1D02140B27638FDC009E6413 /* NetworkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkView.swift; sourceTree = "<group>"; };
+		1D02140C27638FDC009E6413 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1D02140D27638FDC009E6413 /* NetworkPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPresenter.swift; sourceTree = "<group>"; };
+		1D02140E27638FDC009E6413 /* NetworkTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTableView.swift; sourceTree = "<group>"; };
+		1D02140F27638FDC009E6413 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		1D2DC2E6276386B000AC16F1 /* Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Network.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2DC2E9276386B000AC16F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D2DC2EB276386B000AC16F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1D2DC2ED276386B000AC16F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1D2DC2F2276386B300AC16F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D2DC2F5276386B300AC16F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D2DC2F7276386B300AC16F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,12 +40,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D02141A27639033009E6413 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D02140927638FDC009E6413 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				1D02140D27638FDC009E6413 /* NetworkPresenter.swift */,
+				1D02140B27638FDC009E6413 /* NetworkView.swift */,
+				1D02140E27638FDC009E6413 /* NetworkTableView.swift */,
+				1D02140A27638FDC009E6413 /* NetworkTableViewCell.swift */,
+				1D02140C27638FDC009E6413 /* Network.swift */,
+				1D02140F27638FDC009E6413 /* NetworkModel.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		1D2DC2DD276386B000AC16F1 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +79,9 @@
 		1D2DC2E8276386B000AC16F1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1D02140927638FDC009E6413 /* Module */,
 				1D2DC2E9276386B000AC16F1 /* AppDelegate.swift */,
 				1D2DC2EB276386B000AC16F1 /* SceneDelegate.swift */,
-				1D2DC2ED276386B000AC16F1 /* ViewController.swift */,
 				1D2DC2F2276386B300AC16F1 /* Assets.xcassets */,
 				1D2DC2F4276386B300AC16F1 /* LaunchScreen.storyboard */,
 				1D2DC2F7276386B300AC16F1 /* Info.plist */,
@@ -80,6 +105,9 @@
 			dependencies = (
 			);
 			name = Network;
+			packageProductDependencies = (
+				1D02141927639033009E6413 /* SnapKit */,
+			);
 			productName = Network;
 			productReference = 1D2DC2E6276386B000AC16F1 /* Network.app */;
 			productType = "com.apple.product-type.application";
@@ -107,6 +135,9 @@
 				Base,
 			);
 			mainGroup = 1D2DC2DD276386B000AC16F1;
+			packageReferences = (
+				1D02141827639033009E6413 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 1D2DC2E7276386B000AC16F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,8 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2DC2EE276386B000AC16F1 /* ViewController.swift in Sources */,
 				1D2DC2EA276386B000AC16F1 /* AppDelegate.swift in Sources */,
+				1D02141227638FDD009E6413 /* Network.swift in Sources */,
+				1D02141527638FDD009E6413 /* NetworkModel.swift in Sources */,
+				1D02141027638FDD009E6413 /* NetworkTableViewCell.swift in Sources */,
+				1D02141327638FDD009E6413 /* NetworkPresenter.swift in Sources */,
+				1D02141127638FDD009E6413 /* NetworkView.swift in Sources */,
+				1D02141427638FDD009E6413 /* NetworkTableView.swift in Sources */,
 				1D2DC2EC276386B000AC16F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D02141827639033009E6413 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D02141927639033009E6413 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D02141827639033009E6413 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1D2DC2DE276386B000AC16F1 /* Project object */;
 }
