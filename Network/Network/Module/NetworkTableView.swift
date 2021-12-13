@@ -1,13 +1,10 @@
 import UIKit
 
-protocol INetworkTableView {
-    var onTouchedHandler: ((String) -> Void)? { get set }
-}
-
-final class NetworkTableView: UIView, INetworkTableView {
+final class NetworkTableView: UIView {
     private var networkTableView: UITableView = UITableView()
-    var onTouchedHandler: ((String) -> Void)?
-    
+    var dataForIndex: ((Int) -> Data?)?
+    var counter: (() -> Int)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configure()
@@ -15,6 +12,10 @@ final class NetworkTableView: UIView, INetworkTableView {
 
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func reloadData() {
+        self.networkTableView.reloadData()
     }
 }
 
@@ -33,7 +34,6 @@ private extension NetworkTableView {
 
     private func addDelegate() {
         self.networkTableView.dataSource = self
-        self.networkTableView.delegate = self
     }
 
     private func setConfig() {
@@ -47,21 +47,18 @@ private extension NetworkTableView {
     }
 }
 
-extension NetworkTableView: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-}
-
 extension NetworkTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return self.counter?() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = NetworkTableViewCell()
         cell.configure()
-
+        
+        guard let data = self.dataForIndex?(indexPath.row) else { return cell }
+        cell.setImageForCell(data: data)
         return cell
     }
 }

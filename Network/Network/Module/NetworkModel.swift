@@ -1,4 +1,5 @@
 import UIKit
 
-struct NetworkModel {
+struct NetworkModel: Decodable {
+    let url: String
 }
