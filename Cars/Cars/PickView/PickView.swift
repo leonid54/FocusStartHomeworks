@@ -35,12 +35,12 @@ private extension PickView {
     }
     
     private func setConfig() {
-        self.backgroundColor = Metrics.defaultBackColorView
-        self.pickLabel.textColor = Metrics.defaultBlackColor
-        self.pickLabel.font = Metrics.pickViewPickLabelFont
+        self.backgroundColor = Colors.defaultBackColorView
+        self.pickLabel.textColor = Colors.defaultBlackColor
+        self.pickLabel.font = Fonts.pickViewPickLabelFont
         
-        self.carLabel.textColor = Metrics.defaultBlackColor
-        self.carLabel.font = Metrics.pickViewCarLabelFont
+        self.carLabel.textColor = Colors.defaultBlackColor
+        self.carLabel.font = Fonts.pickViewCarLabelFont
     }
     
     private func setConstraint() {

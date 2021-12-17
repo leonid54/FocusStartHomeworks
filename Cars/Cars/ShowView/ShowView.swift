@@ -54,51 +54,51 @@ private extension ShowView {
     }
     
     private func setConfig() {
-        self.backgroundColor = Metrics.defaultBackColorView
+        self.backgroundColor = Colors.defaultBackColorView
         self.activityView.center = self.center
 
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         
-        self.priceTopLabel.textColor = Metrics.defaultBlackColor
-        self.priceTopLabel.font = Metrics.showViewPriceTopLabelFont
+        self.priceTopLabel.textColor = Colors.defaultBlackColor
+        self.priceTopLabel.font = Fonts.showViewPriceTopLabelFont
 
-        self.priceBottomLabel.textColor = Metrics.defaultBlackColor
-        self.priceBottomLabel.font = Metrics.showViewPriceBottomLabelFont
+        self.priceBottomLabel.textColor = Colors.defaultBlackColor
+        self.priceBottomLabel.font = Fonts.showViewPriceBottomLabelFont
         
-        self.typeCarLabel.textColor = Metrics.defaultBlackColor
-        self.typeCarLabel.font = Metrics.showViewCarLabelFont
+        self.typeCarLabel.textColor = Colors.defaultBlackColor
+        self.typeCarLabel.font = Fonts.showViewCarLabelFont
         
-        self.sedanButton.backgroundColor = Metrics.defaultBackColorView
+        self.sedanButton.backgroundColor = Colors.defaultBackColorView
         self.sedanButton.contentHorizontalAlignment = .left
         self.sedanButton.setTitleColor(UIColor.black, for: .normal)
         self.sedanButton.addTarget(self, action: #selector(self.sedanTouchedDown), for: .touchDown)
         
-        self.universalButton.backgroundColor = Metrics.defaultBackColorView
+        self.universalButton.backgroundColor = Colors.defaultBackColorView
         self.universalButton.contentHorizontalAlignment = .left
-        self.universalButton.setTitleColor(Metrics.defaultBlackColor, for: .normal)
+        self.universalButton.setTitleColor(Colors.defaultBlackColor, for: .normal)
         self.universalButton.addTarget(self, action: #selector(self.univTouchedDown), for: .touchDown)
 
         
-        self.cabrioletButton.backgroundColor = Metrics.defaultBackColorView
+        self.cabrioletButton.backgroundColor = Colors.defaultBackColorView
         self.cabrioletButton.contentHorizontalAlignment = .left
-        self.cabrioletButton.setTitleColor(Metrics.defaultBlackColor, for: .normal)
+        self.cabrioletButton.setTitleColor(Colors.defaultBlackColor, for: .normal)
         self.cabrioletButton.addTarget(self, action: #selector(self.cabrTouchedDown), for: .touchDown)
         
-        self.furgonButton.backgroundColor = Metrics.defaultBackColorView
+        self.furgonButton.backgroundColor = Colors.defaultBackColorView
         self.furgonButton.contentHorizontalAlignment = .left
-        self.furgonButton.setTitleColor(Metrics.defaultBlackColor, for: .normal)
+        self.furgonButton.setTitleColor(Colors.defaultBlackColor, for: .normal)
         self.furgonButton.addTarget(self, action: #selector(self.furgonTouchedDown), for: .touchDown)
         
-        self.calculatePriceButton.backgroundColor = Metrics.showViewCalPriceButtonColor
+        self.calculatePriceButton.backgroundColor = Colors.showViewCalPriceButtonColor
         self.calculatePriceButton.layer.cornerRadius = Metrics.showViewCalPriceButtonRadius
-        self.calculatePriceButton.setTitleColor(Metrics.defaultBackColorView, for: .normal)
+        self.calculatePriceButton.setTitleColor(Colors.defaultBackColorView, for: .normal)
         self.calculatePriceButton.addTarget(self, action: #selector(self.getPriceTouchedDown), for: .touchDown)
         
-        self.sLineView.backgroundColor = Metrics.showViewLineViewColor
-        self.uLineView.backgroundColor = Metrics.showViewLineViewColor
-        self.cLineView.backgroundColor = Metrics.showViewLineViewColor
-        self.fLineView.backgroundColor = Metrics.showViewLineViewColor
+        self.sLineView.backgroundColor = Colors.showViewLineViewColor
+        self.uLineView.backgroundColor = Colors.showViewLineViewColor
+        self.cLineView.backgroundColor = Colors.showViewLineViewColor
+        self.fLineView.backgroundColor = Colors.showViewLineViewColor
     }
     
     private func setConstraint() {

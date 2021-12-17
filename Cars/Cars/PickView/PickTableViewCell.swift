@@ -25,9 +25,9 @@ private extension PickTableViewCell {
     }
 
     private func setConfig() {
-        self.nameLabel.textColor = Metrics.defaultBlackColor
+        self.nameLabel.textColor = Colors.defaultBlackColor
         self.selectLabel.text = "Select"
-        self.greenCircle.backgroundColor = Metrics.pickViewCellGreenCircleColor
+        self.greenCircle.backgroundColor = Colors.pickViewCellGreenCircleColor
         self.greenCircle.layer.cornerRadius = Metrics.pickViewCellGreenCircleRadius
     }
 
