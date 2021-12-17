@@ -1,11 +1,33 @@
 import UIKit
+import RealmSwift
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        var config = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {}
+        })
+        config.deleteRealmIfMigrationNeeded = true
+
+        Realm.Configuration.defaultConfiguration = config
+
+        _ = try! Realm()
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        
+        self.window = UIWindow(windowScene: windowScene)
+        
+        let vc = CompanyView()
+
+        let rootNC = UINavigationController(rootViewController: vc)
+        
+        self.window?.rootViewController = rootNC
+        self.window?.makeKeyAndVisible()
     }
 }
 

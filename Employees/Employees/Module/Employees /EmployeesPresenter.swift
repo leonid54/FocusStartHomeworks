@@ -1,8 +1,19 @@
-//
-//  EmployeesPresenter.swift
-//  Employees
-//
-//  Created by Leonid on 14.12.2021.
-//
+import UIKit
+import RealmSwift
 
-import Foundation
+protocol IEmployeesPresenter{
+    func onViewReady()
+}
+
+final class EmployeesPresenter {
+    private var model = Employee()
+    private weak var view: IEmployeesView?
+
+    init(view: IEmployeesView) {
+        self.view = view
+    }
+    
+    func onViewReady() {
+           self.view?.setupInitialState()
+       }
+}

@@ -1,8 +1,6 @@
-//
-//  CompanyModel.swift
-//  Employees
-//
-//  Created by Leonid on 14.12.2021.
-//
+import UIKit
+import RealmSwift
 
-import Foundation
+class Company: Object {
+    @Persisted var name: String
+}
