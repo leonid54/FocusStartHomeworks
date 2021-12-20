@@ -1,8 +1,5 @@
 import UIKit
 
-protocol ICompanyViewCell {
-}
-
 final class CompanyViewCell: UITableViewCell {
     let nameLabel = UILabel()
     

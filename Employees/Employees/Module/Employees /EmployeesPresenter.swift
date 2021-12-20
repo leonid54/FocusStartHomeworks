@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 protocol IEmployeesPresenter{
     func onViewReady()

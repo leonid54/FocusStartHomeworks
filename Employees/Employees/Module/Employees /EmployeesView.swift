@@ -3,7 +3,6 @@ import SnapKit
 import RealmSwift
 
 protocol IEmployeesView: AnyObject {
-    var onTouchedHandler: ((String) -> Void)? { get set }
     func setupInitialState()
 }
 
@@ -13,16 +12,24 @@ final class EmployeesView: UIViewController {
     }()
     private var tableView: UITableView = UITableView()
     private var addButton = UIButton()
-    var onTouchedHandler: ((String) -> Void)?
+    private var ID: String
     let realm = try! Realm()
     var items: Results<Employee>!
     
+    init(companyID: String) {
+        self.items = realm.objects(Employee.self).filter("companyID == %@", companyID)
+        self.ID = companyID
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         self.configure()
         self.presenter.onViewReady()
-        self.items = realm.objects(Employee.self)
     }
 }
 
@@ -46,6 +53,7 @@ private extension EmployeesView {
     }
     
     private func setConfig() {
+        self.view.backgroundColor = Colors.defaultBackColorView
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .plain, target: self, action: #selector(addCompany(_:)))
         self.tableView.showsVerticalScrollIndicator = false
         self.addButton.setTitle("Add", for: .normal)
@@ -61,7 +69,7 @@ private extension EmployeesView {
         self.addAlert()
         }
     
-    func addAlert() {
+    private func addAlert() {
         let alert = UIAlertController(title: "Добавление нового сотрудника", message: "", preferredStyle: .alert)
         
         var nameField: UITextField?
@@ -90,7 +98,7 @@ private extension EmployeesView {
             task.name = name
             task.age = age
             task.experience = exp
-            
+            task.companyID = self.ID
             try! self.realm.write {
                 self.realm.add(task)
             }
@@ -105,11 +113,6 @@ private extension EmployeesView {
 
 extension EmployeesView: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        self.onTouchedHandler?(item.name)
-    }
-    
      func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let editingRow = items[indexPath.row]
@@ -119,9 +122,7 @@ extension EmployeesView: UITableViewDelegate {
                 self.realm.delete(editingRow)
                 tableView.reloadData()
             }
-            
         }
-        
         return [deleteAction]
     }
 }

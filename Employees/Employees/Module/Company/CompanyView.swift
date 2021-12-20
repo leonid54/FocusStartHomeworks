@@ -3,7 +3,6 @@ import SnapKit
 import RealmSwift
 
 protocol ICompanyView: AnyObject {
-    var onTouchedHandler: ((String) -> Void)? { get set }
     func setupInitialState()
 }
 
@@ -13,17 +12,16 @@ final class CompanyView: UIViewController {
     }()
     private var tableView: UITableView = UITableView()
     private var addButton = UIButton()
-    var onTouchedHandler: ((String) -> Void)?
     let realm = try! Realm()
     var items: Results<Company>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         self.configure()
         self.presenter.onViewReady()
         self.items = realm.objects(Company.self)
     }
+
 }
 
 private extension CompanyView {
@@ -46,6 +44,7 @@ private extension CompanyView {
     }
     
     private func setConfig() {
+        self.view.backgroundColor = Colors.defaultBackColorView
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавить", style: .plain, target: self, action: #selector(addCompany(_:)))
         self.tableView.showsVerticalScrollIndicator = false
         self.addButton.setTitle("Add", for: .normal)
@@ -61,7 +60,7 @@ private extension CompanyView {
         self.addAlert()
         }
     
-    func addAlert() {
+    private func addAlert() {
         let alert = UIAlertController(title: "Добавление новой компании", message: "Введите название компании", preferredStyle: .alert)
         
         var alertTextField: UITextField?
@@ -71,9 +70,9 @@ private extension CompanyView {
         }
         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { action in
             guard let text = alertTextField?.text , !text.isEmpty else { return }
-            
             let task = Company()
             task.name = text
+            task.id = NSUUID().uuidString
             
             try! self.realm.write {
                 self.realm.add(task)
@@ -90,9 +89,8 @@ private extension CompanyView {
 extension CompanyView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let employee = EmployeesView()
         let item = items[indexPath.row]
-        self.onTouchedHandler?(item.name)
+        let employee = EmployeesView.init(companyID: item.id)
         self.navigationController?.pushViewController(employee, animated: true)
     }
     
