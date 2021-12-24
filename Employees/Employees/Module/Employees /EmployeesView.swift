@@ -91,7 +91,7 @@ private extension EmployeesView {
         }
         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { action in
             guard let name = nameField?.text , !name.isEmpty else { return }
-            guard let age = ageField?.text , !age.isEmpty else { return }
+            guard let age = Int(ageField?.text ?? "") , age != nil else { return }
             let exp = expField?.text
 
             let task = Employee()
@@ -140,7 +140,9 @@ extension EmployeesView: UITableViewDataSource {
         cell.configure()
         let item = items[indexPath.row]
         cell.nameLabel.text = item.name
-        cell.ageLabel.text = item.age
+        if var ageLabel = Int(cell.ageLabel.text ?? "") {
+        ageLabel = item.age
+        }
         cell.expLabel.text = item.experience
         return cell
     }

@@ -3,7 +3,7 @@ import RealmSwift
 
 class Employee: Object {
     @Persisted var name: String
-    @Persisted var age: String
+    @Persisted var age: Int
     @Persisted var experience: String?
-    @Persisted var companyID: String?
+    @Persisted var companyID: String
 }
