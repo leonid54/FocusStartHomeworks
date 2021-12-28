@@ -1,0 +1,70 @@
+import UIKit
+protocol IPickTableView {
+    var onTouchedHandler: ((String) -> Void)? { get set }
+}
+
+final class PickTableView: UIView, IPickTableView {
+    private var pickTableView: UITableView = UITableView()
+    private var contentModel = Car.cars
+    var onTouchedHandler: ((String) -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.configure()
+    }
+
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private extension PickTableView {
+    
+    private func configure() {
+        self.setConfig()
+        self.addDelegate()
+        self.addSubviews()
+        self.setConstraint()
+    }
+    
+    private func addSubviews() {
+        self.addSubview(self.pickTableView)
+    }
+
+    private func addDelegate() {
+        self.pickTableView.dataSource = self
+        self.pickTableView.delegate = self
+    }
+
+    private func setConfig() {
+        self.pickTableView.showsVerticalScrollIndicator = false
+    }
+
+    private func setConstraint() {
+        self.pickTableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+    }
+}
+
+extension PickTableView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let car = self.contentModel[indexPath.row]
+        self.onTouchedHandler?(car.name)
+    }
+}
+
+extension PickTableView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.contentModel.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = PickTableViewCell()
+        cell.configure()
+        let car = self.contentModel[indexPath.row]
+        cell.set(model: car)
+        return cell
+    }
+}
